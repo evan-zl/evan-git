@@ -1,5 +1,5 @@
-#test desc
-这是我的第一个 git 项目
+#one
+这是第一行说明
 
-#two desc 
-第二行！
+#two
+这是第二行说明
