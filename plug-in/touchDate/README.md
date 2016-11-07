@@ -14,6 +14,7 @@ obj 属性如下：
     defaultYear: , /*-- 日期默认年份 --*/
     defaultMonth: , /*-- 日期默认月份 --*/
     defaultDay:   /*-- 日期默认天 --*/
-} ```
+}
+```
 
 
