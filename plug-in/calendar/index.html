@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>日历插件</title>
+
+	<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">  
+
+	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="../../reset.css">
+
+	<script type="text/javascript" src="../../jquery-3.0.0.js"></script>
+
+	<script type="text/javascript" src="calendar.js"></script>
+
+</head>
+<body>
+	
+	<input type="text" readonly="readonly" placeholder="点击选择日期">
+
+	<script type="text/javascript">
+		
+		$(function() {
+
+			$('input').click(function() {
+
+				var status = $(this).data('status');
+
+				if ( status == 'off') {
+
+					$(this).data('status', 'on');
+					calendar($(this)); 
+
+				} else if (status == 'on') { /*隐藏*/
+
+		            $(this).data('status', 'off');
+		            var node = $(this).parent().next();
+
+		            node.slideUp('slow', function() {
+		                $(this).remove();
+		            });
+
+		        }
+
+			}).data('status', 'off');
+
+		});
+
+	</script>
+
+</body>
+</html>
