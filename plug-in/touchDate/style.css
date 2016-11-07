@@ -1,0 +1,27 @@
+@charset 'utf-8';
+
+.clearFix:after { content: ".";	display: block;	clear: both; height: 0;	font-size: 0; }
+
+.center { text-align: center;}
+
+#date { width: 100%; height: 100%; position: fixed; z-index: 999; top: 0; left: 0; background: rgba(0, 0, 0, 0.3); font-size: 16px; }
+
+#date .dateWrap { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1em 0; background: #fff; }
+
+#date .btnWrap > a { padding: 0 1em; font-size: 0.92em; color: #e67a31; }
+
+#date .btnWrap .confirm { float: right;}
+
+#date .btnWrap .cancle { float: left;}
+
+#date .main { margin-top: 1em; position: relative; overflow: hidden; color: #000; }
+
+#year, #month, #day { float: left; width: 33.3333%; height: 10em; position: relative; }
+
+#touchPanel { z-index: 9; position: absolute; top: 0; left: 0; width: 100%; height: 10em; background: #fff; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%,  rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.8) 100%); }
+
+#touchPanel .line { height: 2em; border-top: 1px solid #e7e7e7; border-bottom: 1px solid #e7e7e7; margin-top: 4em;}
+
+#date ul { position: absolute; width: 100%; }
+
+#date ul > li { height: 2em; line-height: 2em; }

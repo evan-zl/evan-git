@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>日历插件</title>
+
+	<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">  
+
+	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="../../reset.css">
+
+	<script type="text/javascript" src="../../jquery-3.0.0.js"></script>
+
+	<script type="text/javascript" src="touchSelectDate.js"></script>
+
+</head>
+<body>
+	
+	<input type="text" readonly="readonly" placeholder="点击选择日期">
+
+	<script type="text/javascript">
+		
+		$(function() {
+			
+			/*********获取当前日期********/
+		    var date = new Date();
+		    var year = date.getFullYear();
+		    var month = date.getMonth() + 1;
+		    var day = date.getDate();
+		    /*****************************/
+
+			$('input').click(function() {
+				
+		        /*
+		         * @param target => 触发选择控件的文本框
+		         * @param minYear => 最小年份
+		         * @param maxYear => 最大年份
+		         * @param defaultYear => 默认年份
+		         * @param defaultMonth => 默认月份
+		         * @param defaultDay => 默认天
+		         */
+		        var data = {
+		            target: $(this),
+		            minYear: 1900,
+		            maxYear: 2300,
+		            defaultYear: year,
+		            defaultMonth: month,
+		            defaultDay: day
+		        }
+
+		        touchSelectDate(data);
+
+			});
+
+		});
+
+	</script>
+
+</body>
+</html>
