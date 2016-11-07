@@ -12,7 +12,7 @@ function calendar(obj) {
     calendarText += '</div>';
     calendarText += '<div class="bot center">';
     calendarText += '<div id="week">';
-    calendarText += '<ul class="float clearFix">';
+    calendarText += '<ul class="clearFix">';
     calendarText += '<li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>';
     calendarText += '</ul></div>';
     calendarText += '<div id="days">';
@@ -76,7 +76,7 @@ function calendar(obj) {
             if (weekStart <= 5 && days <= 30 || weekStart > 5 && days < 30 || weekStart < 5) {
 
 
-                $('#days').html('<ul class="float clearFix"></ul>');
+                $('#days').html('<ul class="clearFix"></ul>');
                 for (var i = 1; i <= wl * 5; i++) {
 
                     $('#days ul').append('<li><span class="day"></span></li>');
@@ -85,7 +85,7 @@ function calendar(obj) {
 
             } else if (weekStart >= 5 && days > 29) {
 
-                $('#days').html('<ul class="float clearFix"></ul>');
+                $('#days').html('<ul class="clearFix"></ul>');
                 for (var i = 1; i <= wl * 6; i++) {
 
                     $('#days ul').append('<li><span class="day"></span></li>');
