@@ -1,5 +1,5 @@
 /*
- * 日历插件
+ * 日历插件;
  */
 function calendar(obj) {
 
