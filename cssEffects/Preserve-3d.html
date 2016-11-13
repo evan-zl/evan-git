@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D效果图</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset_style.css">
+	<link rel="stylesheet" href="assets/css/preserve-3d.css">
+</head>
+<body>
+	<!-- 圆柱体 -->
+	<div class="box">
+		<div class="container_box">
+			<div class="container">
+				<div class="a"></div>
+				<div class="b"></div>
+				<div class="c"></div>
+				<div class="d"></div>
+				<div class="e" ></div>
+				<div class="f"></div>
+				<div class="g"></div>
+				<div class="h"></div>
+				<div class="i"></div>
+				<div class="j"></div>
+				<div class="k"></div>
+				<div class="l"></div>
+				<div class="m"></div>
+				<div class="n"></div>
+				<div class="o"></div>
+				<div class="p"></div>
+				<div class="q"></div>
+				<div class="r"></div>
+				<div class="s"></div>
+				<div class="t"></div>
+				<div class="u"></div>
+				<div class="v"></div>
+				<div class="w"></div>
+				<div class="x"></div>
+				<div class="y"></div>
+				<div class="z"></div>
+			</div>
+		</div>
+		<a class="changes" href="javascript:;">换图</a>
+	</div>
+	
+	<!-- 立方体 -->
+	<div class="box">
+		<div class="box_cube">
+			<div class="front">1</div>
+			<div class="back">2</div>
+			<div class="left">3</div>
+			<div class="right">4</div>
+			<div class="top">5</div>
+			<div class="bottom">6</div>
+		</div>
+	</div>
+	
+	<!-- 灯笼 -->
+	<div class="box">
+		<div class="box_round">
+			<div class="round1">1</div>
+			<div class="round2">2</div>
+			<div class="round3">3</div>
+			<div class="round4">4</div>
+			<div class="round5">5</div>
+			<div class="round6">6</div>
+		</div>
+	</div>
+	
+	<!-- 由远到近 -->
+	<div class="box">
+		<div class="box_far_near">
+			<div class="object">Hello world!</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		(function() {
+			var changes = document.querySelector(".changes");
+			var container = document.querySelector(".container");
+			var div = container.children;
+			var img_arr = ["assets/images/18-2.png", "assets/images/18-3.png", "assets/images/18-1.png"];
+			var index = 0;
+			changes.onclick = function() {
+				if (index >= img_arr.length-1) {
+					index = 0;
+				} else {
+					index++;
+				}
+				for (var i = 0; i < div.length; i++) {
+					div[i].style.background = "url(" + img_arr[index] + ") -" + i * 25 + "px 0";
+				}
+			}
+		})()
+	</script>
+</body>
+</html>
