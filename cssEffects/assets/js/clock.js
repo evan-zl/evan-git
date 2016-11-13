@@ -1,4 +1,4 @@
-// 显示当前时间
+// 显示当前时间:
 
 // 获取指针
 var hour_hand = document.getElementsByClassName('hour_hand')[0];
