@@ -1,0 +1,95 @@
+@charset "utf-8";
+.container {
+	width: 600px;
+	height: 430px;
+	overflow: auto;
+	margin: 100px auto;
+	border: 1px solid #000;
+	position: relative;
+}
+.right {
+	width: 48px;
+	height: 26px;
+	background: url(../images/right.png);
+	animation: right 2s ease-in-out infinite;
+	-webkit-animation: right 2s ease-in-out infinite;
+}
+@keyframes right {
+	0% {transform: translateX(0); opacity: 0.2;}
+	50% {transform: translateX(30px); opacity: 1;}
+	100% {transform: translateX(30px); opacity: 0;}
+}
+ul {
+	padding-left: 220px;
+	width: 660px;
+	position: relative;
+}
+img {
+	border: 0;
+	margin-left: -172px;
+	margin-top: 39px;
+}
+ul li {
+	float: left;
+	width: 1px;
+	height: 336px;
+	display: block;
+	background: url(../images/coke-label.jpg);
+	background-attachment: fixed;
+	background-repeat: repeat-x; 
+}
+.b1 {background-position: 0px 150px;}
+.b2 {background-position: 0px 150px;}
+.b3 {background-position: -3px 150px;}
+.b4 {background-position: -6px 150px;}
+.b5 {background-position: -8px 150px;}
+.b6 {background-position: -10px 150px;}
+.b7 {background-position: -12px 150px;}
+.b8 {background-position: -14px 150px;}
+.b9 {background-position: -15px 150px;}
+.b10 {background-position: -16px 150px;}
+.b11 {background-position: -17px 150px;}
+.b12 {background-position: -18px 150px;}
+.b13 {background-position: -19px 150px;}
+.b14 {background-position: -20px 150px;}
+.b15 {background-position: -21px 150px;}
+.b16 {background-position: -22px 150px;}
+.b17 {background-position: -23px 150px; width: 2px;}
+.b18 {background-position: -24px 150px; width: 2px;}
+.b19 {background-position: -25px 150px; width: 2px;}
+.b20 {background-position: -26px 150px; width: 2px;}
+.b21 {background-position: -27px 150px; width: 2px;}
+.b22 {background-position: -28px 150px; width: 3px;}
+.b23 {background-position: -29px 150px; width: 3px;}
+.b24 {background-position: -30px 150px; width: 4px;}
+.b25 {background-position: -31px 150px; width: 5px;}
+.b26 {background-position: -32px 150px; width: 6px;}
+.b27 {background-position: -33px 150px; width: 12px;}
+.b28 {background-position: -34px 150px; width: 55px;}
+.b29 {background-position: -35px 150px; width: 12px;}
+.b30 {background-position: -36px 150px; width: 6px;}
+.b31 {background-position: -37px 150px; width: 5px;}
+.b32 {background-position: -38px 150px; width: 4px;}
+.b33 {background-position: -39px 150px; width: 3px;}
+.b34 {background-position: -40px 150px; width: 3px;}
+.b35 {background-position: -41px 150px; width: 2px;}
+.b36 {background-position: -42px 150px; width: 2px;}
+.b37 {background-position: -43px 150px; width: 2px;}
+.b38 {background-position: -44px 150px; width: 2px;}
+.b39 {background-position: -45px 150px;}
+.b40 {background-position: -46px 150px;}
+.b41 {background-position: -47px 150px;}
+.b42 {background-position: -48px 150px;}
+.b43 {background-position: -49px 150px;}
+.b44 {background-position: -50px 150px;}
+.b45 {background-position: -51px 150px;}
+.b46 {background-position: -52px 150px;}
+.b47 {background-position: -53px 150px;}
+.b48 {background-position: -54px 150px;}
+.b49 {background-position: -56px 150px;}
+.b50 {background-position: -58px 150px;}
+.b51 {background-position: -60px 150px;}
+.b52 {background-position: -62px 150px;}
+.b53 {background-position: -65px 150px;}
+.b54 {background-position: -68px 150px;}
+.b55 {background-position: -74px 150px;}
