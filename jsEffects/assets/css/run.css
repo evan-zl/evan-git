@@ -1,0 +1,71 @@
+@charset "utf-8";
+.bg {
+	height: 488px;
+	width: 1300px;
+	position: relative;
+	margin: 50px auto;
+	overflow: hidden;
+}
+.wrap {
+	width: 3900px;
+	height: 488px;
+	position: absolute;
+	left: -1300px;
+}
+.wrap li {
+	float: left;
+}
+.selected {
+	position: absolute;
+	top: 50px;
+	left: calc(50% - 100px)
+}
+.selected a {
+	padding: 5px;
+	border: 1px solid #f00;
+}
+.selected a:hover {
+	background: #eee;
+	border-radius: 5px;
+	border-color: #000;
+}
+.running {
+	width: 180px;
+	height: 300px;
+	background: url(../images/run.png) 0 0 no-repeat;
+	position: absolute;
+	top: 180px;
+	left: calc(50% - 90px);
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: step-start;
+	-moz-animation-timing-function: step-start;
+}
+@keyframes running {
+	0% {background-position: 0 0;}
+    14.3% {background-position: -180px 0;}
+    28.6% {background-position: -360px 0;}
+    42.9% {background-position: -540px 0;}
+    57.2% {background-position: -720px 0;}
+    71.5% {background-position: -900px 0;}
+    85.8% {background-position: -1080px 0;}
+    100% {background-position: 0 0;}
+}
+.run_normal {
+	-webkit-animation-name: running;
+	-moz-animation-name: running;
+	-webkit-animation-duration: 850ms;
+	-moz-animation-duration: 850ms;
+}
+.run_fast {	
+	-webkit-animation-name: running;
+	-moz-animation-name: running;
+	-webkit-animation-duration: 500ms;
+	-moz-animation-duration: 500ms;
+}
+.run_slow {
+	-webkit-animation-name: running;
+	-moz-animation-name: running;
+	-webkit-animation-duration: 1.2s;
+	-moz-animation-duration: 1.2s;
+}
