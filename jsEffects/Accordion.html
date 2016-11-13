@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Accordion</title>
+
+	<link rel="stylesheet" href="../reset.css">
+	<script type="text/javascript" src="../jquery-3.0.0.js"></script>
+
+	<style>
+		.container {
+			width: 1000px;
+			height: 600px;
+			position: relative;
+			margin: 20px auto;
+			overflow: hidden;
+		}
+		li {
+			position: absolute;
+			padding-left: 25px;	
+			height: 100%;	
+		}
+		li img {
+			height: 100%;
+		}
+		a {
+			width: 25px;
+			height: 600px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #f44;
+			text-align: center;
+			line-height: 600px;
+			font-size: 20px;
+			color: #fff;
+		}
+
+	</style>
+
+</head>
+<body>
+		
+	<div class="container">
+		<ul>
+			<li><img src="assets/images/Carousel-1.png" alt=""><a href="javascript:;">壹</a></li>
+			<li><img src="assets/images/Carousel-2.png" alt=""><a href="javascript:;">贰</a></li>
+			<li><img src="assets/images/Carousel-3.png" alt=""><a href="javascript:;">叁</a></li>
+			<li><img src="assets/images/Carousel-4.png" alt=""><a href="javascript:;">肆</a></li>
+			<li><img src="assets/images/Carousel-5.png" alt=""><a href="javascript:;">伍</a></li>
+			<li><img src="assets/images/Carousel-6.png" alt=""><a href="javascript:;">陆</a></li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/accordion.js"></script>
+</body>
+</html>
