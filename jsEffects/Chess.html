@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chinese checkers</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset_style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/chess.css">
+	<script type="text/javascript" src="../jquery-3.0.0.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="list1 child mark">
+			<ul>
+				<li class="face_1">起点</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list2 child" data-go="2">
+			<ul>
+				<li class="face_1">进2</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list3 child">
+			<ul>
+				<li class="face_1">3</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list4 child">
+			<ul>
+				<li class="face_1">4</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list5 child">
+			<ul>
+				<li class="face_1">5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list6 child">
+			<ul>
+				<li class="face_1">6</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list7 child">
+			<ul>
+				<li class="face_1">7</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list8 child">
+			<ul>
+				<li class="face_1">8</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list9 child" data-go="-4">
+			<ul>
+				<li class="face_1">退4</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list10 child" data-go="3">
+			<ul>
+				<li class="face_1">进3</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list11 child">
+			<ul>
+				<li class="face_1">11</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list12 child">
+			<ul>
+				<li class="face_1">12</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list13 child">
+			<ul>
+				<li class="face_1">13</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list14 child" data-go="1">
+			<ul>
+				<li class="face_1">进1</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list15 child">
+			<ul>
+				<li class="face_1">15</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list16 child">
+			<ul>
+				<li class="face_1">16</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list17 child" data-go="-6">
+			<ul>
+				<li class="face_1">退6</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list18 child">
+			<ul>
+				<li class="face_1">18</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list19 child">
+			<ul>
+				<li class="face_1">19</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list20 child">
+			<ul>
+				<li class="face_1">20</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list21 child">
+			<ul>
+				<li class="face_1">21</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list22 child" data-go="5">
+			<ul>
+				<li class="face_1">进5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list23 child">
+			<ul>
+				<li class="face_1">23</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list24 child">
+			<ul>
+				<li class="face_1">24</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list25 child" data-go="-2">
+			<ul>
+				<li class="face_1">退2</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list26 child" data-go="4">
+			<ul>
+				<li class="face_1">进4</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list27 child">
+			<ul>
+				<li class="face_1">27</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list28 child">
+			<ul>
+				<li class="face_1">28</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list29 child">
+			<ul>
+				<li class="face_1">29</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list30 child">
+			<ul>
+				<li class="face_1">30</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list31 child">
+			<ul>
+				<li class="face_1">31</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list32 child">
+			<ul>
+				<li class="face_1">32</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list33 child" data-go="-5">
+			<ul>
+				<li class="face_1">退5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list34 child" data-go="6">
+			<ul>
+				<li class="face_1">进6</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list35 child">
+			<ul>
+				<li class="face_1">35</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list36 child">
+			<ul>
+				<li class="face_1">36</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list37 child">
+			<ul>
+				<li class="face_1">37</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list38 child" data-go="4">
+			<ul>
+				<li class="face_1">进4</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list39 child">
+			<ul>
+				<li class="face_1">39</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list40 child">
+			<ul>
+				<li class="face_1">40</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list41 child" data-go="-1">
+			<ul>
+				<li class="face_1">退1</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list42 child">
+			<ul>
+				<li class="face_1">42</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list43 child">
+			<ul>
+				<li class="face_1">43</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list44 child">
+			<ul>
+				<li class="face_1">44</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list45 child">
+			<ul>
+				<li class="face_1">45</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list46 child" data-go="5">
+			<ul>
+				<li class="face_1">进5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list47 child">
+			<ul>
+				<li class="face_1">47</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list48 child">
+			<ul>
+				<li class="face_1">48</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list49 child" data-go="-2">
+			<ul>
+				<li class="face_1">退2</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list50 child" data-go="6">
+			<ul>
+				<li class="face_1">进6</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list51 child">
+			<ul>
+				<li class="face_1">51</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list52 child">
+			<ul>
+				<li class="face_1">52</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list53 child">
+			<ul>
+				<li class="face_1">53</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list54 child">
+			<ul>
+				<li class="face_1">54</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list55 child">
+			<ul>
+				<li class="face_1">55</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list56 child">
+			<ul>
+				<li class="face_1">56</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list57 child" data-go="-3">
+			<ul>
+				<li class="face_1">退3</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list58 child" data-go="6">
+			<ul>
+				<li class="face_1">进6</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list59 child">
+			<ul>
+				<li class="face_1">59</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list60 child">
+			<ul>
+				<li class="face_1">60</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list61 child">
+			<ul>
+				<li class="face_1">61</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list62 child" data-go="1">
+			<ul>
+				<li class="face_1">进1</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list63 child">
+			<ul>
+				<li class="face_1">63</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list64 child">
+			<ul>
+				<li class="face_1">64</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list65 child" data-go="-4">
+			<ul>
+				<li class="face_1">退4</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list66 child">
+			<ul>
+				<li class="face_1">66</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list67 child">
+			<ul>
+				<li class="face_1">67</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list68 child">
+			<ul>
+				<li class="face_1">68</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list69 child">
+			<ul>
+				<li class="face_1">69</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list70 child" data-go="2">
+			<ul>
+				<li class="face_1">进2</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list71 child">
+			<ul>
+				<li class="face_1">71</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list72 child">
+			<ul>
+				<li class="face_1">72</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list73 child" data-go="-2">
+			<ul>
+				<li class="face_1">退2</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list74 child" data-go="5">
+			<ul>
+				<li class="face_1">进5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list75 child">
+			<ul>
+				<li class="face_1">75</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list76 child">
+			<ul>
+				<li class="face_1">76</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list77 child">
+			<ul>
+				<li class="face_1">77</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list78 child">
+			<ul>
+				<li class="face_1">78</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list79 child">
+			<ul>
+				<li class="face_1">79</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list80 child">
+			<ul>
+				<li class="face_1">80</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list81 child" data-go="-5">
+			<ul>
+				<li class="face_1">退5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list82 child" data-go="3">
+			<ul>
+				<li class="face_1">进3</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list83 child">
+			<ul>
+				<li class="face_1">83</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list84 child">
+			<ul>
+				<li class="face_1">84</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list85 child">
+			<ul>
+				<li class="face_1">85</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list86 child" data-go="5">
+			<ul>
+				<li class="face_1">进5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list87 child">
+			<ul>
+				<li class="face_1">87</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list88 child">
+			<ul>
+				<li class="face_1">88</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list89 child" data-go="-1">
+			<ul>
+				<li class="face_1">退1</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list90 child">
+			<ul>
+				<li class="face_1">90</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list91 child">
+			<ul>
+				<li class="face_1">91</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list92 child">
+			<ul>
+				<li class="face_1">92</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list93 child">
+			<ul>
+				<li class="face_1">93</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list94 child" data-go="5">
+			<ul>
+				<li class="face_1">进5</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list95 child">
+			<ul>
+				<li class="face_1">95</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list96 child">
+			<ul>
+				<li class="face_1">96</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list97 child" data-go="-6">
+			<ul>
+				<li class="face_1">退6</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list98 child" data-go="2">
+			<ul>
+				<li class="face_1">进2</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list99 child">
+			<ul>
+				<li class="face_1">99</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+
+		<div class="list100 child">
+			<ul>
+				<li class="face_1">终点</li>
+				<li class="face_2"></li>
+				<li class="face_3"></li>
+				<li class="face_4"></li>
+				<li class="face_5"></li>
+				<li class="face_6"></li>
+				<li class="face_7"></li>
+				<li class="face_8"></li>
+				<li class="face_9"></li>
+				<li class="face_10"></li>
+				<li class="face_11"></li>
+				<li class="face_12"></li>
+				<li class="face_13"></li>
+				<li class="face_14"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="random">
+		<div class="step"></div>
+		<input class="btn" type="button" value="Click Me!">
+	</div>
+
+	<div class="over">
+		<div class="over_bg"></div>
+		<div class="pop">Game over !</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/chess.js"></script>
+</body>
+</html>

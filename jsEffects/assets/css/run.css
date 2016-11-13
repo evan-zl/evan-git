@@ -23,6 +23,7 @@
 .selected a {
 	padding: 5px;
 	border: 1px solid #f00;
+	display: inline-block;
 }
 .selected a:hover {
 	background: #eee;

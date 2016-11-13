@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+body {
+	background: #000;
+}
+.container {
+	width: 1000px;
+	height: 650px;
+	position: relative;
+	margin: 80px auto;
+}
+.container .child {
+	width: 60px;
+	height: 60px;
+	position: relative;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transform: rotateX(-30deg) rotateY(30deg);
+	-webkit-transform: rotateX(-30deg) rotateY(30deg);
+	float: left;
+	margin-left: 30px;
+}
+ul li {
+	width: 13px;
+	height: 10px;
+	top: 25px;
+	left: 25px;
+	position: absolute;	
+	opacity: .8;
+	background: url(../images/chess-bg.png) 50px -630px;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: "Times New Roman";
+	color: #fff;
+}
+.container .child .face_1, .container .child .face_14 {
+	width: 48px;
+	height: 48px;
+	top: 6px;
+	left: 6px;
+	border-radius: 50%;
+	background: #ff00ff;
+	opacity: 1;
+	border: 2px solid #000;
+	transform: rotateX(90deg) rotateY(0deg) translateZ(7px);
+	-webkit-transform: rotateX(90deg) rotateY(0deg) translateZ(7px);
+	text-align: center;
+	line-height: 48px;
+	text-shadow : 1px 3px #000;
+}
+.list1  .face_1, .list100 .face_1 {
+	font-size: 18px;
+	color: #f00;
+}
+.mark:before {
+	content: "";
+	position: absolute;
+	width: 80px;
+	height: 100px;
+	top: -70px;
+	left: -10px;
+	background: url(../images/mark.png);
+	background-size: 100%;
+}
+.container .child .face_14 {
+	transform: rotateX(-90deg) rotateY(0deg) translateZ(5px);
+	-webkit-transform: rotateX(-90deg) rotateY(0deg) translateZ(5px);
+	box-shadow: 0 0 10px 3px #ff00ff;
+	-webkit-box-shadow: 0 0 10px 3px #ff00ff;
+}
+.container .child:nth-child(2n) .face_1 {
+	background: #EB6202;
+}
+.container .child:nth-child(3n) .face_1 {
+	background: #63FE0A;
+}
+.container .child:nth-child(8n+1) .face_1 {
+	background: #f00;
+}
+.container .child:nth-child(4n) .face_1 {
+	background: #008000;
+}
+/*.container .child:nth-child(2n) .face_1 {
+	background: #008000;
+}
+.container .child:nth-child(2n+1) .face_1 {
+	background: #ff00ff;
+}*/
+.face_2 {
+	transform: rotateX(0deg) rotateY(30deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(30deg) translateZ(24px);
+}
+.face_3 {
+	transform: rotateX(0deg) rotateY(60deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(60deg) translateZ(24px);
+}
+.face_4 {
+	transform: rotateX(0deg) rotateY(90deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(90deg) translateZ(24px);
+}
+.face_5 {
+	transform: rotateX(0deg) rotateY(120deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(120deg) translateZ(24px);
+}
+.face_6 {
+	transform: rotateX(0deg) rotateY(150deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(150deg) translateZ(24px);
+}
+.face_7 {
+	transform: rotateX(0deg) rotateY(180deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(180deg) translateZ(24px);
+}
+.face_8 {
+	transform: rotateX(0deg) rotateY(210deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(210deg) translateZ(24px);
+}
+.face_9 {
+	transform: rotateX(0deg) rotateY(240deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(240deg) translateZ(24px);
+}
+.face_10 {
+	transform: rotateX(0deg) rotateY(270deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(270deg) translateZ(24px);
+}
+.face_11 {
+	transform: rotateX(0deg) rotateY(300deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(300deg) translateZ(24px);
+}
+.face_12 {
+	transform: rotateX(0deg) rotateY(330deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(330deg) translateZ(24px);
+}
+.face_13 {
+	transform: rotateX(0deg) rotateY(360deg) translateZ(24px);
+	-webkit-transform: rotateX(0deg) rotateY(360deg) translateZ(24px);
+}
+.random {
+	width: 200px;
+	height: 100px;
+	position: fixed;
+	top: 200px;
+	right: 10px;
+	text-align: center;
+}
+.step {
+	width: 200px;
+	height: 100px;
+	/*background: #eee;*/
+	color: red;
+	font-size: 18px;
+}
+.btn {
+	width: 150px;
+	height: 40px;
+	border: none;
+	color: green;
+	background: #eee;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.btn:hover {	
+	background: green;
+	color: #fff;
+}
+.over {
+	width: 100%;
+	height: 100%;
+	position: fixed;	
+	top: 0;
+	display: none;
+}
+.over_bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: #fff;
+	opacity: .5;
+}
+.pop {
+	width: 200px;
+	height: 100px;
+	margin: 300px auto;
+	background: #ff6347;
+	position: relative;
+	border-radius: 20px;
+	text-align: center;
+	line-height: 100px;
+	font-size: 30px;
+	color: #f00;
+}
