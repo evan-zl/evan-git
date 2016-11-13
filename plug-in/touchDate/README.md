@@ -2,7 +2,7 @@
 此插件是基于jquery 而写，用之前必须引入JQ 插件
 
 #使用方法
-绑定 input 点击事件，调用touchSelectDate(obj);
+绑定 input 某个事件，调用touchSelectDate(obj);
 
 obj 属性如下：
 
