@@ -1,0 +1,18 @@
+@charset "utf-8";
+.container {
+	width: 890px;
+	position: relative;
+	margin: 50px auto;
+}
+li {
+	float: left;
+	width: 180px;
+	height: 180px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	margin: 20px;
+	background: yellow;
+	background-size: 150%;
+	box-shadow: 5px 5px 5px 3px #444;
+	-webkit-box-shadow: 5px 5px 5px 3px #444;
+}
