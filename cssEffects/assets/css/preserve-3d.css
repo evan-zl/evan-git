@@ -1,0 +1,293 @@
+@charset "utf-8";
+
+body {
+	height: 100%;
+	background: linear-gradient(45deg, #000, #333);
+}
+
+.box {
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
+	border: 1px solid #eee;
+	position: relative;
+	float: left;
+	margin-top: 30px;
+	margin-left: 80px;
+	transition: all 1.3s;
+}
+@media (max-width: 1196px) {
+	div[class^="box"] {
+		margin-left: calc(50% - 250px);
+		transition: all 2s;
+	}
+}
+
+/*圆柱体*/
+.container_box {
+	transform: rotate(20deg);
+}
+.changes {
+	background: #eee;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	color: #000;
+	padding: 5px;
+	border-radius: 5px;
+}
+.container {
+	position: relative;
+	width: 1px;
+	height: 366px;
+	margin: 70px auto;
+	transform-style: preserve-3d;
+	transform: rotateX(30deg) rotateY(30deg);
+	animation: anim 20s linear infinite;
+}
+@keyframes anim {
+	from {
+		transform: rotateX(10deg) rotateY(0) rotateZ(0);
+	}
+	to {
+		transform: rotateX(10deg) rotateY(-360deg) rotateZ(0);
+	}
+}
+.container div {
+	width: 25px;
+	height: 366px;
+	position: absolute;
+	border-top: 1px solid yellow;
+	border-bottom: 1px solid yellow;
+	background-image: url(../images/18-1.png);
+}
+.container .a {
+	  transform: rotateY(13.846deg) translateZ(100px);
+	  background-position:-25px 0;
+}
+.container .b {
+	  transform: rotateY(27.692deg) translateZ(100px);
+	  background-position: -50px 0;
+}
+.container .c {
+	transform: rotateY(41.539deg) translateZ(100px);
+	background-position: -75px 0;
+}
+.container .d {
+	transform: rotateY(55.384deg) translateZ(100px);
+	background-position: -100px 0;
+}
+.container .e {
+	transform: rotateY(69.23deg) translateZ(100px);
+	background-position: -125px 0;
+}
+.container .f {
+	transform: rotateY(83.076deg) translateZ(100px);
+	background-position: -150px 0;
+}
+.container .g {
+	transform: rotateY(96.922deg) translateZ(100px);
+	background-position: -175px 0;
+}
+.container .h {
+	transform: rotateY(110.768deg) translateZ(100px);
+	background-position: -200px 0;
+}
+.container .i {
+	transform: rotateY(124.614deg) translateZ(100px);
+	background-position: -225px 0;
+}
+.container .j {
+	transform: rotateY(138.46deg) translateZ(100px);
+	background-position: -250px 0;
+}
+.container .k {
+	transform: rotateY(152.306deg) translateZ(100px);
+	background-position: -275px 0;
+}
+.container .l {
+	transform: rotateY(166.152deg) translateZ(100px);
+	background-position: -300px 0;
+}
+.container .m {
+	transform: rotateY(179.998deg) translateZ(100px);
+	background-position: -325px 0;
+}
+.container .n {
+	transform: rotateY(193.844deg) translateZ(100px);
+	background-position: -350px 0;
+}
+.container .o {
+	transform: rotateY(207.69deg) translateZ(100px);
+	background-position: -375px 0;
+}
+.container .p {
+	transform: rotateY(221.536deg) translateZ(100px);
+	background-position: -400px 0;
+}
+.container .q {
+	transform: rotateY(235.382deg) translateZ(100px);
+	background-position: -425px 0;
+}
+.container .r {
+	transform: rotateY(249.228deg) translateZ(100px);
+	background-position: -450px 0;
+}
+.container .s {
+	transform: rotateY(263.074deg) translateZ(100px);
+	background-position: -475px 0;
+}
+.container .t {
+	transform: rotateY(276.92deg) translateZ(100px);
+	background-position: -500px 0;
+}
+.container .u {
+	transform: rotateY(290.766deg) translateZ(100px);
+	background-position: -525px 0;
+}
+.container .v {
+	transform: rotateY(304.612deg) translateZ(100px);
+	background-position: -550px 0;
+}
+.container .w {
+	transform: rotateY(318.458deg) translateZ(100px);
+	background-position: -575px 0;
+}
+.container .x {
+	transform: rotateY(332.304deg) translateZ(100px);
+	background-position: -600px 0;
+}
+.container .y {
+	transform: rotateY(346.15deg) translateZ(100px);
+	background-position: -625px 0;
+}
+.container .z {
+	transform: rotateY(359.996deg) translateZ(100px);
+	background-position: -650px 0;
+}
+
+/*立方体*/
+.box_cube, .box_round {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 150px;
+	top: 150px;
+	font-size: 80px;
+	font-family: "微软雅黑", "宋体";
+	transform-style: preserve-3d;
+}
+.box_cube {	
+	animation: box_cube 7s linear infinite;
+}
+@keyframes box_cube {
+	from {
+		transform: rotateX(30deg) rotateY(0);
+	}
+	to {
+		transform: rotateX(390deg) rotateY(360deg);
+	}
+}
+.box_cube div, .box_round div {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	line-height: 200px;
+	text-align: center;
+	border: 1px solid #ccc;
+	opacity: .7;
+}
+.front {
+	transform: translateZ(100px);
+	background: green;
+}
+.back {
+	transform: rotateY(180deg) translateZ(100px);
+	background: teal;
+}
+.left {
+	transform: rotateY(90deg) translateZ(100px);
+	background: pink;
+}
+.right {
+	transform: rotateY(-90deg) translateZ(100px);
+	background: maroon;
+}
+.top {
+	transform: rotateX(90deg) translateZ(100px);
+	background: red;
+}
+.bottom {
+	transform: rotateX(-90deg) translateZ(100px);
+	background: blue;
+}
+
+/*旋转灯笼*/
+.box_round {
+	animation: box_round 7s linear infinite;
+}
+@keyframes box_round {
+	from {
+		transform: rotateX(-30deg) rotateY(0);
+	}
+	to {
+		transform: rotateX(-30deg) rotateY(360deg);
+	}
+}
+.box_round div {
+	border-radius: 100%;
+}
+.round1 {
+	transform: rotateY(30deg);
+	background: blue;
+}
+.round2 {
+	transform: rotateY(60deg);
+	background: green;
+}
+.round3 {
+	transform: rotateY(90deg);
+	background: teal;
+}
+.round4 {
+	transform: rotateY(1200deg);
+	background: red;
+}
+.round5 {
+	transform: rotateY(150deg);
+	background: maroon;
+}
+.round6 {
+	transform: rotateY(180deg);
+	background: pink;
+}
+
+/*由远到近*/
+.box_far_near {
+	width: 150px;
+	height: 150px;
+	top: 170px;
+	left: 170px;
+	position: absolute;
+	border: 1px #eee solid;
+	transform-style: preserve-3d;
+	animation: box_far_near 5s linear alternate infinite;
+}
+.object {
+	width: 100px;
+	height: 100px;
+	margin: 25px;
+	text-align: center;
+	line-height: 100px;
+	background: yellow;
+	border: 1px solid pink;
+	transform: rotateX(30deg);
+}
+@keyframes box_far_near {
+	from {
+		perspective: 150px;
+	}
+	to {
+		perspective: 25px;
+	}
+}
