@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>放大镜</title>
-    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script src="../jquery-3.0.0.js" type="text/javascript">
+    </script>
     <style type="text/css">
-
 	    .container {
 	        width: 800px;
 	        height: 500px;
@@ -26,43 +26,43 @@
 	        background-image: url(assets/images/magnify.jpg);
 	        background-repeat: no-repeat;
 	    }
-
     </style>
+    </meta>
 </head>
 
 <body>
+
     <div class="container">
-        <div class="target"></div>
+        <div class="target">
+        </div>
     </div>
 
     <script type="text/javascript">
-    	
-    	$(function() {
+	    $(function() {
 
-    		/*鼠标移动*/
-    		$('.container').mousemove(function(e) {
+	        /*鼠标移动*/
+	        $('.container').mousemove(function(e) {
 
-    			var x = e.pageX - $(this).offset().left;
-    			var y = e.pageY - $(this).offset().top;
-    			var w = $(this).width();
-    			var h = $(this).height();
-    			
-    			/*定位放大镜及放大区域图像*/
-    			$('.target').css({
-    				display: 'block',
-    				top: e.pageY - 55,
-    				left: e.pageX - 55,
-    				backgroundPosition: -(x * (1920 / 800) - 50) + 'px ' + -(y * (1080 / 500) - 50) + 'px'
-    			});
+	            var x = e.pageX - $(this).offset().left;
+	            var y = e.pageY - $(this).offset().top;
+	            var w = $(this).width();
+	            var h = $(this).height();
 
-    			if (x < 0 || x > w || y < 0 || y > h) {
-    				$('.target').hide();
-    			}
+	            /*定位放大镜及放大区域图像*/
+	            $('.target').css({
+	                display: 'block',
+	                top: e.pageY - 55,
+	                left: e.pageX - 55,
+	                backgroundPosition: -(x * (1920 / 800) - 50) + 'px ' + -(y * (1080 / 500) - 50) + 'px'
+	            });
 
-    		});
+	            if (x < 0 || x > w || y < 0 || y > h) {
+	                $('.target').hide();
+	            }
 
-    	});
+	        });
 
+	    });
     </script>
 </body>
 
