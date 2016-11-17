@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播演示</title>
+
+	<link rel="stylesheet" href="../../reset.css">
+
+	<script type="text/javascript" src="carousel.js"></script>
+
+	<style type="text/css">
+
+		.clearFix:after {
+			content: ".";
+			height: 0;
+			clear: both;
+			display: block;
+			font-size: 0;
+		}		
+		.container {
+			width: 800px;
+			height: 500px;
+			position: relative;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		#focus {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3200px;
+			height: 500px;
+		}
+		#focus > li {
+			width: 800px;
+			float: left;
+			height: 500px;
+		}
+		#focus > li img {
+			height: 100%;
+		}
+		.selector {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #fff;
+		}
+		.selector a {
+			font-size: 40px;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 0 20px;
+		}
+		.prev {
+			float: left;
+			margin-left: 20px;
+		}
+		.next {
+			float: right;
+			margin-right: 20px;
+		}
+		.extraWrap {
+			position: absolute;
+			bottom: 30px;
+			text-align: center;
+			width: 100%;
+		}
+		.extraWrap li {
+			float: left;
+			width: 10px;
+			height: 10px;
+			background: #fff;
+			text-indent: -5000px;
+			border-radius: 50%;
+			margin-left: 10px;
+		}
+		#extra {
+			display: inline-block;
+		}
+
+	</style>
+
+</head>
+<body>
+	
+	<div class="container">
+		<ul class="clearFix" id="focus">
+			<li><img src="../../jsEffects/assets/images/Carousel-1.png" alt=""></li>
+			<li><img src="../../jsEffects/assets/images/Carousel-2.png" alt=""></li>
+			<li><img src="../../jsEffects/assets/images/Carousel-3.png" alt=""></li>
+			<li><img src="../../jsEffects/assets/images/Carousel-4.png" alt=""></li>
+		</ul>
+		<div class="selector clearFix">
+			<a class="prev" href="javascript:;">-</a>
+			<a class="next" href="javascript:;">+</a>
+		</div>
+		<div class="extraWrap">
+			<ul class="clearFix" id="extra">
+				<li>0</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		window.onload = function() {
+
+
+			var transmit = new Transmit();
+
+			transmit.init({
+				'trigger': '#focus', /*移动目标*/
+				't': 2000, /*轮播间隔时间/单位毫秒*/
+				'control': { /*上下翻页， 可无*/
+					next: '.next', /*下一张*/
+					prev: '.prev' /*上一张*/
+				},
+				'sign': { /*标记当前显示图片的位置 可无*/
+					target: '#extra', /*所有标记的父级元素*/
+					signColor: { /*标记背景颜色*/
+						s: '#fff', /*位选中颜色*/
+						e: '#f00' /*选中颜色*/
+					}
+				}
+				
+			})
+		}
+
+	</script>
+
+</body>
+</html>
