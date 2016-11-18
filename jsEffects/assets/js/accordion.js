@@ -14,7 +14,7 @@ $(function() {
 
         if (i % 2 == 0) {
 
-            $(this).find("a").css("background", "#f00");
+            $(this).find("a").css("background", "#666");
         }
 
         $(this).data("index", i);
