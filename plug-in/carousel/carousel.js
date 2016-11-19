@@ -79,7 +79,7 @@ window.Transmit = (function() {
 
             if (self.sign) {
                 for (var i = 0; i < self.siChilds.length; i++) {
-                    self.siChilds[i].onmousemove = function(e) {
+                    self.siChilds[i].onclick = function(e) {
                         for (var i = 0; i < self.siChilds.length; i++) {
                             if (self.siChilds[i] == this) {
                                 self.dx = i;
@@ -90,7 +90,8 @@ window.Transmit = (function() {
                         self.signBackground(self.dx);
                         self.tirChilds[self.tirChilds.length-1].style = '';
                         self.tirChilds[0].style = '';
-                        self.trigger.style.left = left + self.l + 'px';                        
+                        // self.trigger.style.left = left + self.l + 'px';   
+                        self.animate(self.trigger, 300, left + self.l);
                         setTimeout(start, self.t);
                     }
                 }
@@ -185,6 +186,25 @@ window.Transmit = (function() {
 
                 setTimeout(as, 20);
             }())
+        },
+
+        /* 动画 */
+        animate: function(obj, t, w) {
+            var s = 0;
+            var ts = t / 10;
+            var l = obj.offsetLeft;
+            var w = w - l;
+            var ws = w / 10;
+            (function add() {
+                s++;
+                if (s > 10) {
+                    return s = 0;
+                }
+                l += ws;
+                obj.style.left = l + 'px';
+                setTimeout(add, ts);
+            }())
+
         }
 
     }
