@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>multilevelMenu</title>
+	
+	<link rel="stylesheet" type="text/css" href="../reset.css">
+
+	<style type="text/css">
+		
+		.clearFix:after {
+			content: '.';
+			display: block;
+			height: 0;
+			font-size: 0px;
+			clear: both;
+		}
+		.container {
+			margin: 10px;
+		}
+		.container .item {
+			float: left;
+			background: #56AD48;
+			color: #fff;
+			font-size: 20px;
+			padding: 5px;
+			cursor: pointer;
+			position: relative;
+		}
+		.container .item:hover,
+		.second > li:hover,
+		.threeLevel > li:hover  {
+			color: #FF0066;
+			box-shadow: 0 0 2px 1px rgba(55, 55, 55, .6) inset
+		}
+		.container .item:hover .second,
+		.second > li:hover .threeLevel {
+			display: block;
+		}
+		.second {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			display: none;
+		}
+		li {
+			white-space: nowrap;
+			position: relative;
+		}
+		.second > li,
+		.threeLevel > li {
+			padding: 5px;
+			background: #56AD48;
+			color: #fff;			
+		}
+		.threeLevel {
+			position: absolute;
+			left: 100%;
+			top: 0;
+			display: none;
+		}
+
+	</style>
+
+</head>
+<body>
+	
+	<div class="container">
+		<div class="item">
+			一级菜单
+			<ul class="second">
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+		<div class="item">
+			一级菜单
+			<ul class="second">
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+		<div class="item">
+			一级菜单
+			<ul class="second">
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+		<div class="item">
+			一级菜单
+			<ul class="second">
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+		<div class="item">
+			一级菜单
+			<ul class="second">
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+				<li>
+					二级菜单
+					<ol class="threeLevel">
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+						<li>三级菜单</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>
