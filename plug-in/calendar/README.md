@@ -7,7 +7,6 @@
 
 ```javascript
  <input type="text" readonly="readonly" id="cal1" data-type='calendar' placeholder="点击选择日期">
-}
 ```
 
 
