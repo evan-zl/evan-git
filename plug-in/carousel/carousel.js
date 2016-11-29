@@ -21,10 +21,10 @@ window.Transmit = (function() {
                 this.prev = document.querySelector(params.control.prev);
             }
             if (params.sign) {
-            	this.sign = document.querySelector(params.sign.target);
+                this.sign = document.querySelector(params.sign.target);
                 this.siChilds = this.sign.children;
-            	this.signColorS = params.sign.signColor.s;
-            	this.signColorE = params.sign.signColor.e;
+                this.signColorS = params.sign.signColor.s;
+                this.signColorE = params.sign.signColor.e;
             }
             this.t = params.t;
             this.run();
@@ -41,26 +41,26 @@ window.Transmit = (function() {
             var act = task();
 
             function task() {
-            	var act = setInterval(function(){
+                var act = setInterval(function(){
                     self.indexAdd(self.tirChilds);                  
                     self.increase(left);
                 }, self.t);
-            	return act;
+                return act;
             }
 
             function stop() {
-            	clearInterval(act);
+                clearInterval(act);
             }
             function start() {
-            	stop();
-            	act = task();
+                stop();
+                act = task();
             }            
 
             self.trigger.onmousemove = function() {
-            	stop();
+                stop();
             }
             self.trigger.onmouseout = function() {
-            	start();
+                start();
             }
             if (self.control) {
                 self.next.onclick = function() {
