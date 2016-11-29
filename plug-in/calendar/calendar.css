@@ -1,0 +1,84 @@
+@charset 'utf-8';
+
+#calendar {
+    position: relative;
+    border: 1px solid #e7e7e7;
+    padding: 0.3em;
+    width: 300px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+}
+#calendar ul,
+#calendar li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#calendar a {
+	text-decoration: none;
+	color: inherit;
+}
+.clearFix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+}
+.center {
+    text-align: center;
+}
+#reduceMonth,
+#addMonth {
+    display: inline-block;
+    width: 1.333em;
+    height: 1.333em;
+    position: absolute;
+    background-repeat: round;
+    top: 0;
+}
+#reduceMonth {
+    left: 0.8em;
+}
+#addMonth {
+    right: 0.8em;
+}
+#calendar .top {
+    position: relative;
+    color: #fff;
+    font-weight: bold;
+}
+#calendar .bot {
+    margin-top: 0.5em;
+    background: #f5f5f7;
+}
+#calendar .bot li {
+    width: 14.285%;
+}
+#calendar li {
+    float: left;
+    cursor: pointer;
+}
+#calendarWeek li {
+    line-height: 2em;
+}
+#calendarWeek li:first-child,
+#calendarWeek li:last-child {
+    color: #e67a31;
+}
+#calendarDays {
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+}
+#calendarDays li {
+    height: 2em;
+    border-bottom: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    color: #999;
+    box-sizing: border-box;
+}
+#calendarDays li > span {
+    display: inline-block;
+    line-height: 2em;
+    font-weight: bold;	
+}

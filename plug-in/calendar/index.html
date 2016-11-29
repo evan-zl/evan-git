@@ -2,52 +2,40 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	
 	<title>日历插件</title>
 
-	<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">  
-
-	<link rel="stylesheet" href="style.css">
-
-	<link rel="stylesheet" href="../../reset.css">
-
-	<script type="text/javascript" src="../../jquery-3.0.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="calendar.css">
 
 	<script type="text/javascript" src="calendar.js"></script>
 
+	<style type="text/css">
+		
+		html, body {
+			padding: 0;
+			margin: 0;
+		}
+
+	</style>
 </head>
 <body>
-	
-	<input type="text" readonly="readonly" placeholder="点击选择日期">
+	<input type="text" readonly="readonly" id="cal1" data-type='calendar' placeholder="点击选择日期">
+
+	<input type="text" readonly="readonly" id="cal2" data-type='calendar' placeholder="点击选择日期">
+
+	<input type="text" readonly="readonly" id="cal3" data-type='calendar' placeholder="点击选择日期">
+
+	<input type="text" readonly="readonly" id="cal4" data-type='calendar' placeholder="点击选择日期">
 
 	<script type="text/javascript">
 		
-		$(function() {
+	window.onload = function() {
 
-			$('input').click(function() {
+		calendar('#cal1');
+		calendar('#cal2')
+		calendar('#cal3')
+		calendar('#cal4')
 
-				var status = $(this).data('status');
-
-				if ( status == 'off') {
-
-					$(this).data('status', 'on');
-					calendar($(this)); 
-
-				} else if (status == 'on') { /*隐藏*/
-
-		            $(this).data('status', 'off');
-		            var node = $(this).parent().next();
-
-		            node.slideUp('slow', function() {
-		                $(this).remove();
-		            });
-
-		        }
-
-			}).data('status', 'off');
-
-		});
-
+	}
 	</script>
 
 </body>

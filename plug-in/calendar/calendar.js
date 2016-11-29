@@ -1,190 +1,208 @@
+/* 2016-11-27 20:32:21 */
 /*
- * 日历插件;
+ * PC日历插件
  */
-function calendar(obj) {
+window.calendar = function(ele) {
+    var Cal = function() {
+        this.target = document.querySelector(ele);
+        this.container;
+        this.init();
 
-    var calendarText = '';
-    calendarText += '<div id="calendar">';
-    calendarText += '<div class="top">';
-    calendarText += '<a id="reduceMonth" href="javascript:;" class="icon toLeft"></a>';
-    calendarText += '<div class="date center"><span id="year"></span>年<span id="month"></span>月</div>';
-    calendarText += '<a id="addMonth" href="javascript:;" class="icon toRight"></a>';
-    calendarText += '</div>';
-    calendarText += '<div class="bot center">';
-    calendarText += '<div id="week">';
-    calendarText += '<ul class="clearFix">';
-    calendarText += '<li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>';
-    calendarText += '</ul></div>';
-    calendarText += '<div id="days">';
-    calendarText += '</div></div></div>';
-
-    /*
-     * 呼出插件
-     */
-    obj.parent().after(calendarText);
-
-    /*
-     * @param data => 获取当前日期
-     * @param year => 获取当前年份
-     * @param month => 获取当天月份
-     * @param days => 当前月份的天数
-     * @param weekStart => 每个月第一天的星期
-     * @param execute => 执行函数
-     */
-    var date = new Date();
-
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var days;
-    var weekStart;
-
-    /*
-     * @param wl => 获取星期的长度
-     */
-    var wl = $('#week li').length;
-
-    var fn = {
-
-        days: function(month) {
-            /*
-             * 当月份为二月时，根据闰年还是非闰年判断天数
-             * 月份为：1,3,5,7,8,10,12 时，为大月.则天数为31；
-             * 其他月份，天数为：30.
-             */
-            if (month == 2) {
-
-                days = year % 4 == 0 ? 29 : 28;
-
-            } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-
-                days = 31;
-
-            } else {
-
-                days = 30;
-
-            }
-        },
-
-        setDay: function(days) {
-            /*
-             * 重置天数列表
-             */
-            date.setDate(1);
-            weekStart = date.getDay();
-
-            if (weekStart <= 5 && days <= 30 || weekStart > 5 && days < 30 || weekStart < 5) {
-
-
-                $('#days').html('<ul class="clearFix"></ul>');
-                for (var i = 1; i <= wl * 5; i++) {
-
-                    $('#days ul').append('<li><span class="day"></span></li>');
-
-                };
-
-            } else if (weekStart >= 5 && days > 29) {
-
-                $('#days').html('<ul class="clearFix"></ul>');
-                for (var i = 1; i <= wl * 6; i++) {
-
-                    $('#days ul').append('<li><span class="day"></span></li>');
-
-                };
-
-            }
-        },
-
-        showYearAndMonth: function() {
-            /*
-             * 显示当前年月
-             */
-            $('#year').html(year);
-            $('#month').html(month);
-
-        },
-
-        showDays: function(days, weekStart) {
-
-            var day = 1;
-            $('#days li').each(function(n) {
-
-                if (n >= weekStart) {
-
-                    $(this).data('day', day).find('.day').html(day);
-
-                     $(this).click(function() {
-
-                        var d = $(this).data('day');
-
-                        var day = $(this).find('.day').html();                      
-
-                        $(this).html('<span class="day">' + day + '</span>');
-                       
-                        obj.val(year + '年' + month + '月' + d + '日');
-                        $(this).css('color', '#e67a31').siblings().css('color', '#999');
-
-                    });
-
-                    day++;
-                }
-
-                if (day > days) {
-
-                    return false;
-                }
-
-            });
+    }
+    Cal.prototype = {
+        init: function() {
+            this.date = new Date();
+            this.year = this.date.getFullYear();
+            this.month = this.date.getMonth() + 1;
+            this.getDays();
+            this.execute();
         },
 
         execute: function() {
+            var self = this;
 
-            fn.days(month);
-            fn.setDay(days);
-            fn.showYearAndMonth();
-            fn.showDays(days, weekStart);
+            function popCal() {
+                self.container = document.createElement('div');
+                self.container.id = 'calendar';
+                self.container.innerHTML = '<div class="top">' +
+                    '<a id="reduceMonth" href="javascript:;">&lt;</a>' +
+                    '<div class="center"><span id="calendarYear">2016</span> 年 <span id="calendarMonth">12</span> 月 </div>' +
+                    '<a id="addMonth" href="javascript:;">&gt;</a>' +
+                    '</div>' +
+                    '<div class="bot center">' +
+                    '<div id="calendarWeek">' +
+                    '<ul class="clearFix">' +
+                    '<li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>' +
+                    '</ul></div>' +
+                    '<div id="calendarDays">' +
+                    '<ul class="clearFix">' +
+                    '</ul></div></div>';
+                self.close();
+                document.body.appendChild(self.container);
+                var reduceMonth = document.getElementById('reduceMonth');
+                var addMonth = document.getElementById('addMonth');
+                var calendarYear = document.getElementById('calendarYear');
+                var calendarMonth = document.getElementById('calendarMonth');
+                var calendarDays = document.getElementById('calendarDays');
+                var calendarDaysWrap = calendarDays.getElementsByTagName('ul')[0];
+                self.showYearAndMonth(calendarYear, calendarMonth);
+                self.setDays(calendarDaysWrap);
+                self.showDays(calendarDaysWrap)
+                reduceMonth.onclick = function() {
+                    self.month--;
+                    if (self.month < 1) {
+                        self.year--;
+                        self.month = 12;
+                    }
+                    self.date.setMonth(self.month - 1);
+                    self.date.setYear(self.year);
+                    self.getDays();
+                    self.getWeekStart();
+                    self.showYearAndMonth(calendarYear, calendarMonth);
+                    self.setDays(calendarDaysWrap);
+                    self.showDays(calendarDaysWrap);
+                }
+                addMonth.onclick = function() {
+                    self.month++;
+                    if (self.month > 12) {
+                        self.year++;
+                        self.month = 1;
+                    }
+                    self.date.setMonth(self.month - 1);
+                    self.date.setYear(self.year);
+                    self.getDays();
+                    self.getWeekStart();
+                    self.showYearAndMonth(calendarYear, calendarMonth);
+                    self.setDays(calendarDaysWrap);
+                    self.showDays(calendarDaysWrap);
+                }
+            }
+            self.target.onclick = function(e) {
+                popCal();
+                var a = document.getElementById("calendar");
+                var x = this.offsetLeft;
+                var y = this.offsetTop + this.offsetHeight;
+                if ((x + a.offsetWidth) > document.body.clientWidth) {
+                    x = document.body.clientWidth - a.offsetWidth;
+                    if (x < 0) {
+                        x = 0;
+                    }
+                }
+                self.container.left = x;
+                a.style.top = y + 'px';
+                a.style.left = x + 'px';
+            }
+            window.onresize = function() {
+                var a = document.getElementById("calendar");
+                if (a && (a.offsetWidth + a.offsetLeft) > document.body.clientWidth && a.offsetLeft > 0) {
+                    a.style.left = document.body.clientWidth - a.offsetWidth + 'px';
+                } else if (a && a.offsetLeft < self.container.left && (a.offsetWidth + a.offsetLeft) < document.body.clientWidth) {
+                    a.style.left = document.body.clientWidth - a.offsetWidth + 'px';
+                } else if (a && (document.body.clientWidth - a.offsetWidth) > self.container.left) {
+                    a.style.left = self.container.left + 'px';
+                }
+            }
+            document.documentElement.onclick = function(e) {
+                var a = document.getElementById("calendar");
+                if (e.target.getAttribute("data-type") == "calendar") {
+                    return;
+                };
 
+                function toNode(node) {
+                    var p = node.parentNode;
+                    if (a && node.nodeType == 1) {
+                        if (a.getAttribute("id") == node.getAttribute("id")) {
+                            return true;
+                        } else {
+                            return toNode(p);
+                        }
+                    } else {
+                        return false;
+                    }
+                };
+                var rs = toNode(e.target);
+                if (!rs) {
+                    self.close();
+                };
+            }
+        },
+
+        /* 根据月数判断每月天数 */
+        getDays: function() {
+            if (this.month == 2) {
+
+                return this.days = this.year % 4 == 0 ? 29 : 28;
+
+            } else if (this.month == 1 || this.month == 3 || this.month == 5 || this.month == 7 || this.month == 8 || this.month == 10 || this.month == 12) {
+
+                return this.days = 31;
+
+            } else {
+
+                return this.days = 30;
+
+            }
+        },
+
+        /* 获取当月1号是星期几 */
+        getWeekStart: function() {
+            this.date.setDate(1);
+            return this.weekStart = this.date.getDay();
+        },
+
+        /* 显示年月 */
+        showYearAndMonth: function(year, month) {
+            year.innerHTML = this.year;
+            month.innerHTML = this.month;
+        },
+
+        /* 重置列表 */
+        setDays: function(ele) {
+            this.getWeekStart();
+            ele.innerHTML = '';
+            if (this.weekStart <= 5 && this.days <= 30 || this.weekStart > 5 && this.days < 30 || this.weekStart < 5) {
+                for (var i = 1; i <= 35; i++) {
+                    ele.innerHTML += '<li></li>';
+                }
+            } else if (this.weekStart >= 5 && this.days > 29) {
+                for (var i = 1; i <= 42; i++) {
+
+                    ele.innerHTML += '<li></li>';
+
+                };
+
+            };
+        },
+
+        /* 显示日期 */
+        showDays: function(ele) {
+            var dayList = ele.getElementsByTagName('li');
+            var len = dayList.length;
+            var self = this;
+            var day = 1;
+            for (var i = 0; i < len; i++) {
+                if (i >= self.weekStart) {
+                    dayList[i].innerHTML = '<span class="day">' + day + '</span>';
+                    dayList[i].onclick = function() {
+                        var d = this.textContent;
+                        self.target.value = self.year + '年' + self.month + '月' + d + '日';
+                        self.close();
+                    };
+                    day++;
+                };
+                if (day > self.days) {
+                    return false;
+                }
+            }
+        },
+
+        close: function() {
+            var cal = document.getElementById("calendar");
+            if (cal && cal.parentNode) {
+                cal.parentNode.removeChild(cal);
+            }
         }
     }
 
-
-    fn.execute();
-
-
-    /*
-     * 查询下月份
-     */
-    $('#addMonth').click(function() {
-
-        month++;
-        if (month > 12) {
-
-            year++;
-            month = 1;
-        }
-
-        date.setMonth(month - 1);
-        date.setYear(year);
-
-        fn.execute();
-
-    });
-
-    /*
-     * 查询上月份
-     */
-    $('#reduceMonth').click(function() {
-
-        month--;
-        if (month < 1) {
-
-            year--;
-            month = 12;
-        }
-
-        date.setMonth(month - 1);
-        date.setYear(year);
-
-        fn.execute();
-    });
+    return new Cal;
 }
