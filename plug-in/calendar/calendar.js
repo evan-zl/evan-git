@@ -7,7 +7,6 @@ window.calendar = function(ele) {
         this.target = document.querySelector(ele);
         this.container;
         this.init();
-
     }
     Cal.prototype = {
         init: function() {
@@ -20,7 +19,6 @@ window.calendar = function(ele) {
 
         execute: function() {
             var self = this;
-
             function popCal() {
                 self.container = document.createElement('div');
                 self.container.id = 'calendar';
@@ -130,17 +128,11 @@ window.calendar = function(ele) {
         /* 根据月数判断每月天数 */
         getDays: function() {
             if (this.month == 2) {
-
                 return this.days = this.year % 4 == 0 ? 29 : 28;
-
             } else if (this.month == 1 || this.month == 3 || this.month == 5 || this.month == 7 || this.month == 8 || this.month == 10 || this.month == 12) {
-
                 return this.days = 31;
-
             } else {
-
                 return this.days = 30;
-
             }
         },
 
@@ -166,11 +158,8 @@ window.calendar = function(ele) {
                 }
             } else if (this.weekStart >= 5 && this.days > 29) {
                 for (var i = 1; i <= 42; i++) {
-
                     ele.innerHTML += '<li></li>';
-
                 };
-
             };
         },
 
