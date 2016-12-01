@@ -7,11 +7,11 @@
 
 ```javascript
 touchSelectDate('#touchSelectDate1').init({
-	minYear: 1900,
-    maxYear: 2100,
-    defaultYear: year,
-    defaultMonth: month,
-    defaultDay: day
+	minYear: number, /* 显示的最小年份 */
+    maxYear: number, /* 显示的最大年份 */
+    defaultYear: number, /* 默认选中的年份 */
+    defaultMonth: number, /* 默认选中的月份 */
+    defaultDay: number /* 默认选中的天 */
 });
 ```
 
