@@ -1,521 +1,341 @@
-/*滑动选择日期*/
-function touchSelectDate(obj) {
-
-    /*
-     * @param minY => 获取最小年份
-     * @param maxY => 获取最大年份
-     * @param year => 获取默认年份
-     * @param month => 获取默认月份
-     * @param day => 获取默认天
-     */
-    var minY = obj.minYear;
-    var maxY = obj.maxYear;
-    var year = obj.defaultYear;
-    var month = obj.defaultMonth;
-    var day = obj.defaultDay;
-
-    /*
-     * 插件容器
-     */
-    var container = '<div id="date">' +
-        '<div class="dateWrap">' +
-        '<div class="btnWrap clearFix">' +
-        '<a class="cancle" href="javascript:;">取消</a>' +
-        '<a class="confirm" href="javascript:;">确认</a>' +
-        '</div>' +
-        '<div class="main clearFix center">' +
-        '<div id="touchPanel"><div class="line"></div></div>' +
-        '<div id="year"><ul></ul></div>' +
-        '<div id="month"><ul></ul></div>' +
-        '<div id="day"><ul></ul></div>' +
-        '</div>' +
-        '</div>' +
-        '</div>';
-
-    /*呼出插件*/
-    $(document.body).append(container);
-
-    /*选中默认年月日*/
-    $('#year ul').css('top', (4 - (year + 2 - minY)) * 2 + 'em');
-    $('#month ul').css('top', (4 - (month + 1)) * 2 + 'em');
-    $('#day ul').css('top', (4 - (day + 1)) * 2 + 'em');
-
-    for (var i = minY; i <= maxY; i++) {
-
-        $('#year ul').append('<li>' + i + '</li>');
-
+/* 2016-11-29 14:42:14 */
+/*
+ * 手机滑动选择日期
+ * 放大效果
+ */
+window.touchSelectDate = function(ele) {
+    var date = new Date();
+    var touchDate = function() {
+        this.target = document.querySelector(ele);
+        this.defaultYear = date.getFullYear();
+        this.defaultMonth = date.getMonth() + 1;
+        this.defaultDay = date.getDate();
+        this.days;
+        this.minYear = 1900;
+        this.maxYear = this.defaultYear + 200;
+        this.container;
+        // this.init();
     }
-
-    for (var i = 1; i <= 12; i++) {
-
-        if (i < 10) {
-
-            i = '0' + i;
-        }
-
-        $('#month ul').append('<li>' + i + '</li>');
-
-    }
-
-    /*
-     * 输出天数
-     * @param setDay => 重置天数
-     * @param judge => 根据月份判断天数
-     * @param execute => 执行
-     */
-    var fn = {
-
-        setDay: function() {
-
-            $('#day ul').html('');
-
-            this.judge();
-
-            var tp = $('#day ul').position().top;
-
-            for (var i = 1; i <= days; i++) {
-
-                if (i < 10) {
-
-                    i = '0' + i;
-                }
-
-                $('#day ul').append('<li>' + i + '</li>');
-
+    touchDate.prototype = {
+        init: function(param) {
+            var self = this;
+            if (param) {
+                self.param = param;
+                self.defaultYear = param.defaultYear;
+                self.defaultMonth = param.defaultMonth;
+                self.defaultDay = param.defaultDay;
+                self.minYear = param.minYear;
+                self.maxYear = param.maxYear;
             }
-
-            var ln = $('#day ul').children().length;
-            var h = $('#day li').height();
-
-            if(tp <=  -(ln - 3) * h) {
-
-                day = ln;
-
-                $('#day ul').animate({'top': -(ln - 3) * h}, 'fast');
-            }
-
-        },
-
-        judge: function() {
-
-            /*
-             * 当月份为二月时，根据闰年还是非闰年判断天数
-             * 月份为：1,3,5,7,8,10,12 时，为大月.则天数为31；
-             * 其他月份，天数为：30.
-             */
-            if (month == 2) {
-
-                days = year % 4 == 0 ? 29 : 28;
-
-            } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-
-                days = 31;
-
-            } else {
-
-                days = 30;
-
-            }
-
+            self.execute();
         },
 
         execute: function() {
+            var self = this;
+            self.target.onclick = function() {
+                popDate();
+            }
+            function popDate() {
+                self.container = document.createElement('div');
+                self.container.id = 'touchDate';
+                self.container.innerHTML = '<div class="dateWrap">' +
+                    '<div class="btnWrap clearFix">' +
+                    '<a class="cancle" href="javascript:;">取消</a>' +
+                    '<a class="confirm" href="javascript:;">确认</a>' +
+                    '</div>' +
+                    '<div class="main clearFix center">' +
+                    '<div id="touchPanel"><div class="line">' +
+                    '<div id="magnify">' +
+                    '<div id="magnifyYear"><ul></ul></div>' +
+                    '<div id="magnifyMonth"><ul></ul></div>' +
+                    '<div id="magnifyDay"><ul></ul></div>' +
+                    '</div>' +
+                    '</div></div>' +
+                    '<div id="year"><ul></ul></div>' +
+                    '<div id="month"><ul></ul></div>' +
+                    '<div id="day"><ul></ul></div>' +
+                    '</div>' +
+                    '</div>';
+                self.close();
+                document.body.appendChild(self.container);
+                var touchPanel = document.getElementById('touchPanel');
+                self.division = touchPanel.offsetWidth / 3;
+                self.templateHei = touchPanel.getElementsByClassName('line')[0].offsetHeight;
+                var year = document.getElementById('year').getElementsByTagName('ul')[0];
+                var magnifyYear = document.getElementById('magnifyYear').getElementsByTagName('ul')[0];
+                var month = document.getElementById('month').getElementsByTagName('ul')[0];
+                var magnifyMonth = document.getElementById('magnifyMonth').getElementsByTagName('ul')[0];
+                var day = document.getElementById('day').getElementsByTagName('ul')[0];
+                var magnifyDay = document.getElementById('magnifyDay').getElementsByTagName('ul')[0];
+                var cancle = self.container.getElementsByClassName('cancle')[0];
+                var confirm = self.container.getElementsByClassName('confirm')[0];
+                var timerYear, timerMonth, timerDay;
+                year.style.top = (2 - (self.defaultYear - self.minYear)) * 2 + 'em';
+                magnifyYear.style.top = (2 - (self.defaultYear - self.minYear)) * 2 + 'em';
+                month.style.top = (3 - self.defaultMonth) * 2 + 'em';
+                magnifyMonth.style.top = (3 - self.defaultMonth) * 2 + 'em';
+                day.style.top = (3 - self.defaultDay) * 2 + 'em';
+                magnifyDay.style.top = (3 - self.defaultDay) * 2 + 'em';
+                setTimeout(function() {
+                    showYear();
+                    showMonth();
+                    showDays();                    
+                }, 50);
+                touchPanel.addEventListener('touchstart', dateTouchStart, false);
+                touchPanel.addEventListener('touchmove', dateTouchMove, false);
+                touchPanel.addEventListener('touchend', dateTouchEnd, false);
+                cancle.onclick = function() {
+                    self.close();
+                }
+                confirm.onclick = function() {
+                    if (self.defaultMonth < 10) {
+                        self.defaultMonth = '0' + self.defaultMonth;
+                    }
+                    if (self.defaultDay < 10) {
+                        self.defaultDay = '0' + self.defaultDay;
+                    }
+                    self.target.value = self.defaultYear + '-' + self.defaultMonth + '-' + self.defaultDay;
+                    self.close();
+                }
 
-            this.setDay();
-        }
-
-    };
-
-    fn.execute();
-
-    /*
-     * 取消与确认
-     */
-    $('#date .cancle').click(function() {
-        $('#date').remove();
-    })
-
-    $('#date .confirm').click(function() {
-
-        if (month < 10) {
-
-            month = '0' + month;
-
-        }
-
-        obj.target.val(year + '-' + month + '-' + day);
-        $('#date').remove();
-    })
-
-    /*获取主控对象*/
-    var touchPanel = document.getElementById('touchPanel');
-    
-    touch();
-    var timing1, timing2, timing3;
-
-    /*手机设备 滑动 事件*/
-    function touch() {
-        /*
-         *  滑动开始
-         *	@param touch => 获取开始第一个触点
-         *  @param x => 获取 X 坐标值
-         *  @param startPos => 获取 Y 坐标值
-         *  @param division => 获取分割点
-         *  @param templateHei => 获取单个高度
-         *  @param **Top => 获取 各自的 top 值
-         *  @param **Len => 获取 各自的子项长度
-         */
-        function touchSatrt(e) {
-
-            try {
-
-                e.preventDefault(); /*阻止浏览器的默认缩放，滚动*/
-
-                var touch = e.targetTouches[0];
-                x = touch.pageX;
-                startPos = touch.pageY;
-
-                division = touchPanel.offsetWidth / 3;
-                templateHei = $('#touchPanel .line').outerHeight();
-
-                yearLen = $('#year ul').children().length;
-                monthLen = $('#month ul').children().length;
-                dayLen = $('#day ul').children().length;
-
-                if (x < division) {
-
-                    yearTop = $('#year ul').position().top;
-                    clearInterval(timing1);
-
-
-                } else if (x > division && x < division * 2) {
-
-                    monthTop = $('#month ul').position().top;
-					clearInterval(timing2);
-
-                } else {
-
-                    dayTop = $('#day ul').position().top;
-                    clearInterval(timing3);
-
+                function showYear() {
+                    for (var i = self.minYear; i <= self.maxYear; i++) {
+                        year.innerHTML += '<li>' + i + '</li>';
+                        magnifyYear.innerHTML += '<li>' + i + '</li>';
+                    }
+                    self.yearLen = year.children.length;
                 };
 
-            } catch (e) {
+                function showMonth() {
+                    for (var i = 1; i <= 12; i++) {
+                        if (i < 10) {
+                            i = '0' + i;
+                        }
+                        month.innerHTML += '<li>' + i + '</li>';
+                        magnifyMonth.innerHTML += '<li>' + i + '</li>';
+                    }
+                    self.monthLen = month.children.length;
+                };
 
-                alert("touchStart:" + e.message);
+                function showDays() {
+                    self.getDays();
+                    day.innerHTML = '';
+                    magnifyDay.innerHTML = '';
+                    var tp = day.offsetTop;
+                    for (var i = 1; i <= self.days; i++) {
+                        if (i < 10) {
+                            i = '0' + i;
+                        }
+                        day.innerHTML += '<li>' + i + '</li>';
+                        magnifyDay.innerHTML += '<li>' + i + '</li>';
+                    }
+                    self.dayLen = day.children.length;
+                    var ln = day.children.length;
+                    if (tp <= -(ln -3) * self.templateHei) {
+                        this.days = ln;
+                        self.animate(day, 600, -(ln - 3) * self.templateHei);
+                        self.animate(magnifyDay, 600, -(ln - 3) * self.templateHei);
+                    }
+                };
 
-            };
-        };
+                function dateTouchStart(e) {
+                    e.preventDefault();
+                    var touch = e.targetTouches[0];
+                    x = touch.pageX;
+                    end = 0;
+                    startPos = touch.pageY;
+                    if (x < self.division) {
+                        yearTop = year.offsetTop;
+                        clearInterval(timerYear);
+                    } else if (x > self.division && x < self.division * 2) {
+                        monthTop = month.offsetTop;
+                        clearInterval(timerMonth);
+                    } else {
+                        dayTop = day.offsetTop;
+                        clearInterval(timerDay);
+                    }
+                };
 
-        /**
-         * 滑动中 
-         * @param touch => 获取滑动的第一个触点
-         * @param movePos => 计算移动的 Y 坐标距离
-         * @param move => 对象滑动的距离
-         */
-        function touchMove(e) {
+                function dateTouchMove(e) {
+                    e.preventDefault();
+                    var touch = e.targetTouches[0];
+                    movePos = touch.pageY - startPos;                    
+                    sw = movePos - end;
+                    end = movePos;
+                    if (x < self.division) {
+                        year.style.top = movePos + yearTop + 'px';
+                        magnifyYear.style.top = movePos + yearTop + 'px';
+                    } else if (x > self.division && x < self.division * 2) {
+                        month.style.top = movePos + monthTop + 'px';
+                        magnifyMonth.style.top = movePos + monthTop + 'px';
+                    } else {
+                        day.style.top = movePos + dayTop + 'px';
+                        magnifyDay.style.top = movePos + dayTop + 'px';
+                    }
+                };
 
+                function dateTouchEnd(e) {
+                    e.preventDefault();
+                    var touch = e.changedTouches[0];
+                    endPos = touch.pageY - startPos;                    
+                    if (endPos < 10 && endPos > -10) {
+                        sw = 0;
+                    }
+                    if (x < self.division) {
+                        endPosYear = endPos;
+                        swingYear = sw;
+                        yearTe = year.offsetTop;
+                        var t1 = 0;
+                        timerYear = setInterval(function() {
+                            t1 += swingYear;
+                            swingYear *= 0.96;
+                            yearL = endPosYear + yearTop + t1;
+                            len1 = self.yearLen - 2;
+                            if (yearL >= self.templateHei * 2) {
+                                t1 = self.templateHei * 2 - yearTe;
+                                swingYear = 0;
+                            } else if (yearL <= -(len1 * self.templateHei)) {
+                                t1 = -(len1 * self.templateHei) - yearTe;
+                                swingYear = 0;
+                            }
+                            year.style.top = yearTe + t1 + 'px';
+                            magnifyYear.style.top = yearTe + t1 + 'px';
+                            if (Math.abs(swingYear) < 1) {
+                                clearInterval(timerYear);
+                                s1 = parseInt(-yearL / self.templateHei) + 2;
+                                surplusYear = -yearL % self.templateHei;
+                                if (surplusYear > self.templateHei / 2) {
+                                    s1 += 1;
+                                }
+                                if (s1 >= self.yearLen -1) {
+                                    s1 = self.yearLen -1;
+                                } else if (s1 <= 0) {
+                                    s1 = 0;
+                                }
+                                self.defaultYear = self.minYear + s1;
+                                showDays();
+                                self.animate(year, 600, (2 - s1) * self.templateHei);
+                                self.animate(magnifyYear, 600, (2 - s1) * self.templateHei);
+                            }
+                           
+                        }, 30);
 
-            try {
-
-                e.preventDefault();
-
-                var touch = e.targetTouches[0];
-                movePos = touch.pageY - startPos;
-
-                if (x < division) {
-
-                    move1 = movePos + yearTop;
-                    $('#year ul').css('top', move1);
-
-                } else if (x > division && x < division * 2) {
-
-                    move2 = movePos + monthTop;
-                    $('#month ul').css('top', move2);
-
-                } else {
-
-                    move3 = movePos + dayTop;
-                    $('#day ul').css('top', move3);
-
+                    } else if (x > self.division && x < self.division * 2) {
+                        endPosMonth = endPos;
+                        swingMonth = sw;
+                        monthTe = month.offsetTop;
+                        var t2 = 0;
+                        timerMonth = setInterval(function() {
+                            t2 += swingMonth;
+                            swingMonth *= 0.96;
+                            monthL = endPosMonth + monthTop + t2;
+                            len2 = self.monthLen - 2;
+                            if (monthL >= self.templateHei * 2) {
+                                t2 = self.templateHei * 2 - monthTe;
+                                swingMonth = 0;
+                            } else if (monthL <= -(len2 * self.templateHei)) {
+                                t2 = -(len2 * self.templateHei) - monthTe;
+                                swingMonth = 0;
+                            }
+                            month.style.top = monthTe + t2 + 'px';
+                            magnifyMonth.style.top = monthTe + t2 + 'px';
+                            if (Math.abs(swingMonth) < 1) {
+                                clearInterval(timerMonth);
+                                s2 = parseInt(-monthL / self.templateHei) + 2;
+                                surplusMonth = -monthL % self.templateHei;
+                                if (surplusMonth > self.templateHei / 2) {
+                                    s2 += 1;
+                                }
+                                if (s2 >= self.monthLen -1) {
+                                    s2 = self.monthLen -1;
+                                } else if (s2 <= 0) {
+                                    s2 = 0;
+                                }
+                                self.defaultMonth = 1 + s2;
+                                showDays();
+                                self.animate(month, 600, (2 - s2) * self.templateHei);
+                                self.animate(magnifyMonth, 600, (2 - s2) * self.templateHei);
+                            }
+                        }, 30);
+                    } else {
+                        endPosDay = endPos;
+                        swingDay = sw;
+                        dayTe = day.offsetTop;
+                        var t3 = 0;
+                        timerDay = setInterval(function() {
+                            t3 += swingDay;
+                            swingDay *= 0.96;
+                            dayL = endPosDay + dayTop + t3;
+                            len3 = self.dayLen - 2;
+                            if (dayL >= self.templateHei * 2) {
+                                t3 = self.templateHei * 2 - dayTe;
+                                swingDay = 0;
+                            } else if (dayL <= -(len3 * self.templateHei)) {
+                                t3 = -(len3 * self.templateHei) - dayTe;
+                                swingDay = 0;
+                            }
+                            day.style.top = dayTe + t3 + 'px';
+                            magnifyDay.style.top = dayTe + t3 + 'px';
+                            if (Math.abs(swingDay) < 1) {
+                                clearInterval(timerDay);
+                                s3 = parseInt(-dayL / self.templateHei) + 2;
+                                surplusDay = -dayL % self.templateHei;
+                                if (surplusDay > self.templateHei / 2) {
+                                    s3 += 1;
+                                }
+                                if (s3 >= self.dayLen -1) {
+                                    s3 = self.dayLen -1;
+                                } else if (s3 <= 0) {
+                                    s3 = 0;
+                                }
+                                self.defaultDay = 1 + s3;
+                                self.animate(day, 600, (2 - s3) * self.templateHei);
+                                self.animate(magnifyDay, 600, (2 - s3) * self.templateHei);
+                            }
+                        }, 30);
+                    }
                 }
-
-
-            } catch (e) {
-
-                alert('touchMove:' + e.message);
-            };
-
-        };
-
-        /**
-         * 滑动结束 
-         * @param touch = > 获取结束的第一个触点;
-         * @param t => 滑动结束后滑行的距离
-         * @param swing => 滑行的速度
-         */
-        function touchEnd(e) {
-
-            try {
-
-                e.preventDefault();
-
-                var touch = e.changedTouches[0];
-                endPos = touch.pageY - startPos;
-
-                var t1 = 0;
-                var t2 = 0;
-                var t3 = 0;
-
-                if (endPos < 10 && endPos > -10) {
-
-                	movePos = 0;
-
-                }
-
-                if (x < division) {
-
-                    endPos1 = endPos;
-
-                    swing1 = movePos / 20;
-                    $('#year ul').stop(true, true);
-
-                    /*定时滑行*/
-                    timing1 = setInterval(function() {
-
-                        t1 += swing1;
-                        swing1 *= 0.96;
-
-                        /*
-                         * @param l => 滑动对象的最终 top 值
-                         * @param len => 滑动对象的 top 的最大转换单个子项个数
-                         */
-                        l1 = endPos1 + yearTop + t1;
-                        len1 = yearLen - 2;
-
-                        /*限制 t 的范围*/
-                        if (l1 >= templateHei * 2) {
-
-                            t1 = templateHei * 2 - move1;
-                            swing1 = 0;
-
-                        } else if (l1 <= -(len1 * templateHei)) {
-
-                            t1 = -(templateHei * len1) - move1;
-                            swing1 = 0;
-
-                        }
-
-
-                        if (Math.abs(swing1) < 1) {
-
-                            clearInterval(timing1);
-
-                            /*滑动的个数*/
-                            s1 = parseInt(-l1 / templateHei) + 2;
-
-                            /*滑行的余数*/
-                            surplus = -l1 % templateHei;
-
-                            /*判断余数是否大于 单个高度的 二分之一*/
-                            if (surplus > templateHei / 2) {
-
-                                s1 += 1;
-
-                            }
-
-                            if (s1 >= yearLen - 1) {
-
-                                s1 = yearLen - 1;
-
-                            } else if (s1 <= 0) {
-
-                                s1 = 0;
-
-                            }
-
-                            year = minY + s1;
-
-                            $('#year ul').animate({ 'top': 4 - s1 * 2 + 'em' }, 'fast');
-
-                        }
-                        
-                        $('#year ul').css('top', move1 + t1);
-
-                    }, 30);
-
-                } else if (x > division && x < division * 2) {
-
-                    endPos2 = endPos;
-
-                    swing2 = movePos / 20;
-                    $('#month ul').stop(true, true);
-
-                    /*定时滑行*/
-                    timing2 = setInterval(function() {
-
-                        t2 += swing2;
-                        swing2 *= 0.96;
-
-                        /*
-                         * @param l => 滑动对象的最终 top 值
-                         * @param len => 滑动对象的 top 的最大转换单个子项个数
-                         */
-                        l2 = endPos2 + monthTop + t2;
-                        len2 = monthLen - 2;
-
-                        /*限制 t 的范围*/
-                        if (l2 >= templateHei * 2) {
-
-                            t2 = templateHei * 2 - move2;
-                            swing2 = 0;
-
-                        } else if (l2 <= -(len2 * templateHei)) {
-
-                            t2 = -(templateHei * len2) - move2;
-                            swing2 = 0;
-
-                        }
-
-                        if (Math.abs(swing2) < 1) {
-
-                            clearInterval(timing2);
-
-                            /*滑动的个数*/
-                            s2 = parseInt(-l2 / templateHei) + 2;
-
-                            /*滑行的余数*/
-                            surplus = -l2 % templateHei;
-
-                            /*判断余数是否大于 单个高度的 二分之一*/
-                            if (surplus > templateHei / 2) {
-
-                                s2 += 1;
-
-                            }
-
-                            if (s2 >= monthLen - 1) {
-
-                                s2 = monthLen - 1;
-
-                            } else if (s2 <= 0) {
-
-                                s2 = 0;
-
-                            }
-
-                            month = s2 + 1;
-                            fn.setDay();
-
-                            $('#month ul').animate({ 'top': 4 - s2 * 2 + 'em' }, 'fast');
-
-                        }
-
-                        $('#month ul').css('top', move2 + t2);
-
-                    }, 30);
-
-                } else {
-
-                    endPos3 = endPos;
-
-                    swing3 = movePos / 20;
-                    $('#day ul').stop(true, true);
-
-                    /*定时滑行*/
-                    timing3 = setInterval(function() {
-
-                        t3 += swing3;
-                        swing3 *= 0.96;
-
-                        /*
-                         * @param l => 滑动对象的最终 top 值
-                         * @param len => 滑动对象的 top 的最大转换单个子项个数
-                         */
-                        l3 = endPos3 + dayTop + t3;
-                        len3 = dayLen - 2;
-
-                        /*限制 t 的范围*/
-                        if (l3 >= templateHei * 2) {
-
-                            t3 = templateHei * 2 - move3;
-                            swing3 = 0;
-
-                        } else if (l3 <= -(len3 * templateHei)) {
-
-                            t3 = -(templateHei * len3) - move3;
-                            swing3 = 0;
-
-                        }
-
-                        if (Math.abs(swing3) < 1) {
-
-                            clearInterval(timing3);
-
-                            /*滑动的个数*/
-                            s3 = parseInt(-l3 / templateHei) + 2;
-
-                            /*滑行的余数*/
-                            surplus = -l3 % templateHei;
-
-                            /*判断余数是否大于 单个高度的 二分之一*/
-                            if (surplus > templateHei / 2) {
-
-                                s3 += 1;
-                                
-                            }
-
-                            if (s3 >= dayLen - 1) {
-
-                                s3 = dayLen - 1;
-
-                            } else if (s3 <= 0) {
-
-                                s3 = 0;
-
-                            }
-
-                            day = s3 + 1;
-
-                            $('#day ul').animate({ 'top': 4 - s3 * 2 + 'em' }, 'fast');
-
-                        }
-
-                        $('#day ul').css('top', move3 + t3);
-
-                    }, 30);
-
-                }
-
-            } catch (e) {
-
-                // alert('touchEnd:' + e.message);
-            };
-
-        };
-
-        function bindEvent(e) {
-
-            touchPanel.addEventListener('touchstart', touchSatrt, false);
-            touchPanel.addEventListener('touchmove', touchMove, false);
-            touchPanel.addEventListener('touchend', touchEnd, false);
-
-        };
-
-        function isTouchDevice(e) {
-
-            try {
-
-                bindEvent();
-
-            } catch (e) {
-
-                alert('不支持TouchEvent事件！' + e.message);
-
             }
-        };
+            
+        },
 
-        isTouchDevice();
-    };
+        getDays: function() {
+            if (this.defaultMonth == 2) {
+                return this.days = this.defaultYear % 4 == 0 ? 29 : 28;
+            } else if (this.defaultMonth == 1 || this.defaultMonth == 3 || this.defaultMonth == 5 || this.defaultMonth == 7 || this.defaultMonth == 8 || this.defaultMonth == 10 || this.defaultMonth == 12) {
+                return this.days = 31;
+            } else {
+                return this.days = 30;
+            }
+        },
 
+        animate: function(obj, t, w) {
+            if (obj.timer) {
+             clearTimeout(obj.timer);
+            }
+            var s = 0;
+            var ts = t / 20;
+            var l = obj.offsetTop;
+            var w = w - l;
+            var ws = w / 20;
+            (function add() {
+                s++;
+                if (s > 20) {
+                    return s = 0;
+                }
+                l += ws;
+                obj.style.top = l + 'px';
+                obj.timer = setTimeout(add, ts);
+            }())
+
+        },
+
+        close: function() {
+            var touchDate = document.getElementById("touchDate");
+            if (touchDate && touchDate.parentNode) {
+                touchDate.parentNode.removeChild(touchDate);
+            }
+        }
+    }
+    return new touchDate;
 }
