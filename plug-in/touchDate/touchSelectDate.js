@@ -84,6 +84,9 @@ window.touchSelectDate = function(ele) {
                 touchPanel.addEventListener('touchstart', dateTouchStart, false);
                 touchPanel.addEventListener('touchmove', dateTouchMove, false);
                 touchPanel.addEventListener('touchend', dateTouchEnd, false);
+                window.onresize = function() {
+                    self.division = touchPanel.offsetWidth / 3;
+                }
                 cancle.onclick = function() {
                     self.close();
                 }
