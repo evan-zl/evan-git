@@ -6,6 +6,8 @@
 使用js 调用 touchSelectDate(#id).init({可传参数});
 
 ```javascript
+<input type="text" readonly="readonly" id="touchSelectDate1" placeholder="点击选择日期">
+
 touchSelectDate('#touchSelectDate1').init({
 	minYear: number, /* 显示的最小年份 */
     maxYear: number, /* 显示的最大年份 */
