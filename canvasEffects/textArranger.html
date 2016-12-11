@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+
+</head>
+<body>
+	
+	<div class="container-fluid" style="text-align: center;">
+		<canvas id="canvas" height="300" width="800"></canvas>
+	</div>
+
+	<div class="container">
+		<form action="">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="textbox" class="input-group-addon">Text</label>
+							<input id="textbox" type="text" class="form-control" placeholder="Enter Text...">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="font" class="input-group-addon">Text Font</label>
+							<select class="form-control" id="font">
+								<option value="serif">serif</option>
+								<option value="sans-serif">sans-serif</option>
+								<option value="cursive">cursive</option>
+								<option value="fantasy">fantasy</option>
+								<option value="monospace">monospace</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="fillOrStroke" class="input-group-addon">Fill Or Stroke</label>
+							<select class="form-control" id="fillOrStroke">
+								<option value="fill">fill</option>
+								<option value="stroke">stroke</option>
+								<option value="both">both</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="bgColor" class="input-group-addon">bgColor</label>
+							<input id="bgColor" type="color" class="form-control" placeholder="Enter Text...">							
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="color" class="input-group-addon">Text Color</label>
+							<input id="color" type="color" class="form-control" placeholder="Enter Text...">							
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="color2" class="input-group-addon">Text Color2</label>
+							<input id="color2" type="color" class="form-control" placeholder="Enter Text...">							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="gradient" class="input-group-addon">Text Gradient</label>
+							<select class="form-control" id="gradient">
+								<option value="single">single</option>
+								<option value="linear">linear</option>
+								<option value="radial">radial</option>
+								<option value="pattern">pattern</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="style" class="input-group-addon">Text Style</label>		
+							<select class="form-control" id="style">
+								<option value="normal">normal</option>
+								<option value="italic">italic</option>
+								<option value="oblique">oblique</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="weight" class="input-group-addon">Text Weight</label>
+							<select class="form-control" id="weight">
+								<option value="normal">normal</option>
+								<option value="bold">bold</option>
+								<option value="bolder">bolder</option>
+								<option value="lighter">lighter</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="baseline" class="input-group-addon">Text Baseline</label>
+							<select class="form-control" id="baseline">
+								<option value="middle">middle</option>
+								<option value="top">top</option>
+								<option value="hanging">hanging</option>
+								<option value="alphabetic">alphabetic</option>
+								<option value="ideographic">ideographic</option>
+								<option value="bottom">bottom</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="align" class="input-group-addon">Text Align</label>
+							<select class="form-control" id="align">
+								<option value="center">center</option>
+								<option value="start">start</option>
+								<option value="end">end</option>
+								<option value="left">left</option>
+								<option value="right">right</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="shadowColor" class="input-group-addon">Shadow Color</label>
+							<input type="color" class="form-control" name="" id="shadowColor">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="size" class="input-group-addon">Text Size</label>
+							<input type="range" class="form-control" id="size" min="0" max="100" step="1" value="40">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="alpha" class="input-group-addon">Alpha</label>
+							<input type="range" class="form-control" id="alpha" min="0.0" max="1.0" step="0.01" value="1.0">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="shadowBlur" class="input-group-addon">Shadow Blur</label>
+							<input type="range" class="form-control" id="shadowBlur" min="1" max="100" step="1" value="1"></br>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="shadowx" class="input-group-addon">Shadow X</label>
+							<input type="range" class="form-control" id="shadowx" min="-100" max="100" step="1" value="3"></br>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="shadowy" class="input-group-addon">Shadow Y</label>
+							<input type="range" class="form-control" id="shadowy" min="-100" max="100" step="1" value="3">
+						</div>
+					</div> 
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="canvasWidth" class="input-group-addon">Canvas Width</label>
+							<input type="range" class="form-control" id="canvasWidth" min="200" max="1000" step="1" value="800">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="canvasHeight" class="input-group-addon">Canvas Height</label>
+							<input type="range" class="form-control" id="canvasHeight" min="200" max="600" step="1" value="300">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="translateDeg" class="input-group-addon">Translate</label>
+							<input type="range" class="form-control" id="translateDeg" min="-360", max="360" step="1" value="0">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="translateScale" class="input-group-addon">Translate</label>
+							<input type="range" class="form-control" id="translateScale" min="0.0", max="1.0" step="0.01" value="1">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<button id="createImageData" type="button" class="btn btn-info">Create Image Data</button>
+				</div>
+				<div class="col-sm-8">		
+					<textarea id="imageData" class="form-control" cols="30" rows="10" placeholder="Image Data..."></textarea>
+				</div>
+			</div>			
+			
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		
+		window.addEventListener('load', run, false);
+
+		function run () {
+			canvasApp();
+		};
+
+		function canvasApp () {
+
+			// 获取相关节点
+			var theCanvas = document.getElementById('canvas');
+			var fillOrStroke = document.getElementById('fillOrStroke');
+			var texInput = document.getElementById('textbox');
+			var bgCol = document.getElementById('bgColor');
+
+			var fontFace = document.getElementById('font');
+			var fontSize = document.getElementById('size');
+			var fontColor = document.getElementById('color');
+			var fontColor2 = document.getElementById('color2');
+			var fontGradient = document.getElementById('gradient');
+			var fontWeight = document.getElementById('weight');
+			var fontStyle = document.getElementById('style');
+
+			var textBaseline = document.getElementById('baseline');
+			var textAlign = document.getElementById('align');
+			var textAlpha = document.getElementById('alpha');
+
+			var shadowColor = document.getElementById('shadowColor');
+			var shadowx = document.getElementById('shadowx');
+			var shadowy = document.getElementById('shadowy');
+			var shadowBlur = document.getElementById('shadowBlur');
+
+			var canvasWidth = document.getElementById('canvasWidth');
+			var canvasHeight = document.getElementById('canvasHeight');
+
+			var translateDeg = document.getElementById('translateDeg');
+			var translateScale = document.getElementById('translateScale');
+
+			var createImageData = document.getElementById('createImageData');
+			var imageData = document.getElementById('imageData');
+
+			var ca = theCanvas.getContext('2d');
+
+			// 声明相关变量
+			var bgColor = '#ddd';
+			var color = '#000';
+			var color2 = '#fff';
+			var gradient = 'single';
+
+			var fillStroke = 'fill';
+			var size = '40';
+			var face = 'serif';
+			var weight = '';
+			var style = '';
+
+			var baseline = 'middle';
+			var align = 'center';
+			var alpha = 1.0;
+
+			var shadowCol = '#000';
+			var shadowX = 3;
+			var shadowY = 3;
+			var shadowBl = 1;
+
+			var message = 'Hello World !';
+
+			var patternImg = new Image();
+			patternImg.src = 'images/pattern.jpg';
+
+			var deg = 0;
+			var scaleNum = 1;
+
+			drawDefault();
+
+			// 添加事件
+			fillOrStroke.addEventListener('change', function (e) {
+				applyChange('fillStroke', e);
+			}, false);
+
+			texInput.addEventListener('keyup', function (e) {
+				applyChange('message', e);
+			}, false);
+
+			bgCol.addEventListener('change', function (e) {
+				applyChange('bgColor', e);
+			}, false);
+
+			fontFace.addEventListener('change', function (e) {
+				applyChange('face', e);
+			}, false);
+
+			fontSize.addEventListener('change', function (e) {
+				applyChange('size', e);
+			}, false);
+
+			fontColor.addEventListener('change', function (e) {
+				applyChange('color', e);
+			}, false);
+
+			fontColor2.addEventListener('change', function (e) {
+				applyChange('color2', e);
+			}, false);
+
+			fontGradient.addEventListener('change', function (e) {
+				applyChange('gradient', e);
+			}, false);
+
+			fontWeight.addEventListener('change', function (e) {
+				applyChange('weight', e);
+			}, false);
+
+			fontStyle.addEventListener('change', function (e) {
+				applyChange('style', e);
+			}, false);
+
+			textBaseline.addEventListener('change', function (e) {
+				applyChange('baseline', e);
+			}, false);
+
+			textAlign.addEventListener('change', function (e) {
+				applyChange('align', e);
+			}, false);
+
+			textAlpha.addEventListener('change', function (e) {
+				applyChange('alpha', e);
+			}, false);
+
+			shadowColor.addEventListener('change', function (e) {
+				applyChange('shadowCol', e);
+			}, false);
+
+			shadowx.addEventListener('change', function (e) {
+				applyChange('shadowX', e);
+			}, false);
+
+			shadowy.addEventListener('change', function (e) {
+				applyChange('shadowY', e);
+			}, false);
+
+			shadowBlur.addEventListener('change', function (e) {
+				applyChange('shadowBl', e);
+			}, false);
+
+			canvasWidth.addEventListener('change', function (e) {
+				applyChange('theCanvas.width', e);
+			}, false);
+
+			canvasHeight.addEventListener('change', function (e) {
+				applyChange('theCanvas.height', e);
+			}, false);
+
+			translateDeg.addEventListener('change', function (e) {
+				applyChange('deg', e);
+			}, false);
+
+			translateScale.addEventListener('change', function (e) {
+				applyChange('scaleNum', e);
+			}, false);
+
+			createImageData.addEventListener('click', function (e) {
+				imageData.value = theCanvas.toDataURL();
+				window.open(imageData.value, 'canvasImage', 'left = 50, top = 50, width =' + theCanvas.width + ', height = ' + theCanvas.height + ', toolbar = 0, resizable = 0');
+			}, false);
+
+			function applyChange (va, e) {
+				eval(va + ' = e.target.value');
+				drawScreen();
+			}
+
+			function drawScreen () {
+
+				//设置字体样式
+				ca.font = weight + ' ' + style + ' ' + size + 'px ' + face;
+
+				//获取中心点
+				var metrics = ca.measureText(message); // 获取文本距离
+				var textWidth = metrics.width; // 获取文本的像素宽度
+				var xPosition = (theCanvas.width / 2); // x 中心点
+				var yPosition = theCanvas.height / 2; // y 中心点
+
+				var tempColor;
+				switch (gradient) {
+
+					case 'single':
+						// 单一色
+						tempColor = color;
+						break;
+
+					case 'linear':
+						// 线性渐变色
+						var gr = ca.createLinearGradient(-xPosition, -yPosition, theCanvas.width/2, -yPosition);
+						gr.addColorStop(0, color);
+						gr.addColorStop(0.1, color2);
+						gr.addColorStop(0.2, color);
+						gr.addColorStop(0.3, color2);
+						gr.addColorStop(0.4, color);
+						gr.addColorStop(0.5, color2);
+						gr.addColorStop(0.6, color);
+						gr.addColorStop(0.7, color2);
+						gr.addColorStop(0.8, color);
+						gr.addColorStop(0.9, color2);
+						gr.addColorStop(1, color);
+						tempColor = gr;
+						break;
+
+					case 'radial':
+						// 径向渐变色
+						var gr = ca.createRadialGradient(0, 0, 50, 0, 0, 400);
+						gr.addColorStop(0, color);
+						gr.addColorStop(0.5, color2);
+						tempColor = gr;
+						break;
+
+					case 'pattern':
+						//文本图图案
+						tempColor = ca.createPattern(patternImg, 'repeat');
+						break;
+
+				};
+
+				//改变角度
+				ca.setTransform(1, 0, 0, 1, 0, 0);
+				ca.translate(xPosition, yPosition);
+				ca.scale(scaleNum, scaleNum);
+				ca.rotate(deg * (Math.PI / 180));
+
+				//清除画布
+				ca.clearRect(-xPosition, -yPosition, theCanvas.width/2, theCanvas.height/2);
+
+				//背景
+				ca.fillStyle = bgColor;
+				ca.fillRect(-xPosition, -yPosition, theCanvas.width, theCanvas.height);
+
+				//边框
+				ca.strokeStyle = '#000';
+				ca.strokeRect(-xPosition + 5, -yPosition + 5, theCanvas.width - 10, theCanvas.height - 10);
+
+				// 字体颜色
+				ca.fillStyle = tempColor;
+				ca.strokeStyle = tempColor;
+
+				//文本的基线与对齐
+				ca.textBaseline = baseline;
+				ca.textAlign = align;
+
+				//透明度
+				ca.globalAlpha = alpha;
+
+				//阴影
+				ca.shadowColor = shadowCol;
+				ca.shadowOffsetX = shadowX;
+				ca.shadowOffsetY = shadowY;
+				ca.shadowBlur = shadowBl;
+
+				// 依据选择的填充类型执行相应的填充模式
+				switch (fillStroke) {
+
+					case 'fill':
+						ca.fillText(message, 0, 0);
+						break;
+
+					case 'stroke':
+						ca.strokeText(message, 0, 0);
+						break;
+						
+					case 'both':
+						ca.fillText(message, 0, 0);
+						ca.strokeStyle = '#000';
+						ca.strokeText(message, 0, 0);
+						break;
+				};
+			}
+
+			function drawDefault () {
+
+				//文本居中
+				var message = 'hello world !';
+				ca.font = 'bold 34px serif';
+				var metrics = ca.measureText(message); // 获取文本距离
+				var textWidth = metrics.width; // 获取文本的像素宽度
+
+				var xPosition = (theCanvas.width / 2) - (textWidth / 2); // x 中心点
+				var yPosition = theCanvas.height / 2; // y 中心点
+
+				//绘制
+				var gr = ca.createLinearGradient(0, 0, 800, 300);
+				gr.addColorStop(0, '#f00');
+				gr.addColorStop(.5, '#ff0');
+				gr.addColorStop(1, '#f00');
+
+				ca.fillStyle = gr;
+				ca.fillRect(0, 0, 900, 900);
+
+				ca.fillStyle = '#000';
+				ca.fillText(message, xPosition, yPosition);
+
+				// strokeText  -> 空心字
+				ca.strokeStyle = '#000';
+				ca.font = '50px serif';
+				ca.strokeText('操作控件，改变画布样式与内容 ！', 20, 90);
+			}
+		}
+
+	</script>
+
+</body>
+</html>
